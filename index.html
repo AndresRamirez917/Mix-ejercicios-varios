@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="cargaBody()">
+    <h1 class="result" id="resultado"></h1>
+    <script>
+        // convertir una cadena a número con el operador +
+            let a = "44";
+            let b = 56;
+            result = (+a) + (b);
+            let resultado = document.querySelector(".result").innerHTML= 
+            `El resultado de la suma es: ${result}` 
+            // let cadena = "javascript"
+            // for(let i = 0; i<cadena.length; i++){
+            //     console.log(cadena[i]);
+            // }
+            // for(let i in cadena){
+            //     console.log(cadena[i]);
+            // }
+
+            // for(let i of cadena){
+            //     console.log(i);
+            // }
+            
+            // EJERCICIO USO DE REPEAT PARA REPETIR UNA CADENA1
+            let name = "andres";
+            console.log("Repite la cadena 3 veces: " + name.repeat(3 ));
+            console.log("");
+
+            // BUSQUEDA DEL ÚLTIMO INDICE DE UNA CADENA DADA
+            let cad = "andres y carolina son de fresno y viven al frente de la carcel de fresno";
+            console.log("El último indice de la cadena fresno es: " + cad.lastIndexOf("fresno"));
+            console.log("");
+
+            // EJERCICIO PARA MOSTRAR NÚMEROS DE FORMA INVERSA
+            let numero =54321;
+            function invertirNumero(numero){
+                return Number(numero.toString().split("").reverse().join("")); 
+                //            ["5", "4", "3", "2", "1" ] -> ["1", "2", "3", "4", "5"]
+                //            "12345" -> 12345
+            }
+            console.log("Números invertidos: " + invertirNumero(numero));
+
+            console.log("");
+
+            // EJERCICIO PARA CONTAR EL NÚMERO DE ENTEROS QUE POSEE UNA CANTIDAD
+            let numeros = 123456789;
+            function cuentaEnteros(numero){
+                return numeros.toString().split("").length;
+            }
+
+            console.log("Número de enteros de la cantidad: " + cuentaEnteros(numeros))
+            console.log("");
+
+            // EJERCICIO PARA ELIMINAR UN ELEMNETO DE UN ARRAY
+            function eliminarNumerosArray(array, valor){
+                return array.filter((element)=>{
+                    return element !== valor;
+                })
+            }
+            let arreglo = [1,2,3,4,5,6,7,8,9,10];
+            console.log("Elimina el número 6 del arreglo " + eliminarNumerosArray(arreglo, 6));
+            console.log("");
+            
+            // EJERCICIO USO DEL SPREAD OPERATOR
+            function spreadOperator(a,b,c){
+                return a + b + c; 
+            }
+            let arr = [1,2,3];
+            let suma = spreadOperator(...arr);
+            console.log("Uso de la función spreadOperator " + suma);
+            console.log("");
+            
+            // EJERCICIO CREACIÓN DE UN ARRAY A PARTIR DE DE ARRAY.FROM
+            function crearArregloConFrom(){
+                return Array.from(arguments);
+            }
+            let arrayCreado = crearArregloConFrom(1,2,3) 
+            console.log(`El array creado apartir de Array.from es: `)
+            console.log(arrayCreado)
+            console.log("")
+
+            // EJERCICIO USO DE EVERY EN UN ARRAY
+            function usoEvery(array){
+                return array.every(element =>{
+                    return element % 2 == 0;
+                })
+            }
+
+            console.log("Todos los elementos del array son divisibles por 2?: " + usoEvery(arr))
+            console.log("")
+
+            // EJERCICIO USO DEL SOME EN UN ARRAY
+            function usoSome(arr){
+                return arr.some((element)=>{
+                    return element <= 0;
+                })
+            }
+
+            console.log("En el array existe un número menor o igual que 0?: " + usoSome(arr))
+            console.log("");
+
+            // EJERCICIO USO REDUCE EN UN ARRAY
+            let usoReduce = arreglo.reduce((anterior, actual) =>{
+                return anterior + actual;
+            })
+
+            console.log("La suma de los elementos del array arreglo es: " + usoReduce);
+            console.log("");
+
+            // EJERCICIO USO FILTER EN UN ARRAY
+            let arrRep = [1,2,2,3,3,4,5,5,6,6,6,7,8];
+            let numerosUnicos = arrRep.filter((valor, indice, arreglo) =>{
+                return arreglo.indexOf(valor) == indice;
+            });
+
+            /*
+                valor:   1,2,2,3,3... el valor es 2 (el 2 repetido)
+                indice:  0,1,2,3,4... su indice en el array es 2 
+                indexOf: 0,1,1,3,3... indexOf pregunta si su indice es 1, 
+                                      pero como es un 2 repetido indexOF
+                                      compara el indice del 2 repetido con 
+                                      el indice del primer 2, como no son iguales
+                                      omite su ingreso al array 
+                
+                [1,2,3,4.....]
+            */
+            console.log("Los valores únicos del arreglo [1,2,2,3,3,4,5,5,6,6,6,7,8] son: " + numerosUnicos)
+            console.log("");
+
+            // EJERCICIO CONTADOR DE CONCURRENCIAS EN UN ARRAY
+            let numsRep = [1,1,1,2,2,3,3,3,4,5,5,6,6,6,7,8,9,9,10];
+            let palRep = ["andres", "y", "carolina", "viven", "en", "fresno", "y", "los", "dos", "son", "de", "fresno"]
+            let objOcurrencias = {};
+            let ocurrencias = palRep.forEach((valor, indice, array) =>{
+                if(objOcurrencias[valor]){
+                    objOcurrencias[valor] += 1;
+                }else{
+                    objOcurrencias[valor] = 1;
+                }
+            })
+
+            console.log(["andres", "y", "carolina", "viven", "en", "fresno", "y", "los", "dos", "son", "de", "fresno"] );
+            console.log(objOcurrencias);
+            console.log("");
+
+            // EJERCICIO CREACIÓN DE OBJETOS CON CONSTRUCTOR
+            let persona = new Object();
+            persona.nombre = "Andrés",
+            persona.apellido = "Ramirez",
+            persona.edad = 43
+            console.log("Objeto creado con constructor");
+            console.log(persona);
+
+            // EJERCICIO OBJETO CREADO CON LIETARL {}
+            let persona2 = {nombre:"Carolina", apellido:"Del Rio", Edad:37};
+            console.log("Objeto creado con forma literal");
+            console.log(persona2);
+            console.log("");
+
+            atributos = Object.keys(persona2)
+            atributos.forEach((atributo) =>{
+                console.log("Atributo: ", atributo, " Valor: ", persona2[atributo] )
+            })
+            console.log("")
+
+            // EJERCICIO AGREGAR FUNCIONES AL MÉTODO PROTOTYPE
+            function Punto(x,y){
+                this.x = x;
+                this.y = y;
+            }
+            Punto.prototype.saludo = function(){
+                return "hola"
+            };
+
+            Punto.prototype.iguales = function(otroPunto){
+                return this.x == otroPunto.x && this.y == otroPunto.y
+            };
+
+            let punto1 = new Punto(1,5);
+            let punto2 = new Punto(2,4);
+            let punto3 = new Punto(1,5);
+            console.log("Llamado de método iguales agregado al prototype " + punto1.iguales(punto2));
+            console.log("Llamado de método iguales agregado al prototype " + punto1.iguales(punto3))
+            console.log("Llamado del método saludo agregado al prototype " + punto1.saludo())
+            console.log("")
+
+            console.log("Tener en cuenta el ejercicio 213 que recorre un array de una forma muy interesante")
+    
+            // EJERCICIO EMOJIS DENTRO DE UN SET
+            let cerdo = "🐷";
+            let perro = "🐕‍🦺";
+            let tigre = "🐅";
+            let cabra = "🐐";
+
+            let animales = new Set();
+            animales.add(cerdo);
+            animales.add(cerdo);
+            animales.add(perro);
+            animales.add(tigre);
+            animales.add(cabra);
+            console.log(animales);
+            console.log(animales.size)
+            console.log("Set no usa length para conocer su tamaño, usa size")
+            console.log("")
+
+
+            // EJERCICIO CREACIÓN FUNCIÓN UNIÓN PARA PROTOTYPE, PARA EJERCICIOS CON CONJUNTOS
+            Set.prototype.union = function(otroConjunto){
+                let conjuntoUnion = new Set();
+                for(const e of this){
+                    conjuntoUnion.add(e)
+                }
+
+                for(const e of otroConjunto){
+                    conjuntoUnion.add(e)
+                }
+
+                return conjuntoUnion;
+            }
+
+            let A = new Set([1,2,3,4,5,6]);
+            let B = new Set([5,6,7,8,9,10]);
+            console.log("Resultado de los conjuntos A y B al usar la función unión es: " + A.union(B));
+            console.log("");
+
+            // EJERCICIO CREACIÓN FUNCIÓN INTERSECCIÓN PARA PROTOTYPE, PARA EJERCICIOS CON CONJUNTOS
+            Set.prototype.inteseccion = function (otroConjunto) {
+                let conjuntoInterseccion = new Set()
+                for(let e of otroConjunto){
+                    if(this.has(e)){
+                        conjuntoInterseccion.add(e)
+                    }
+                }
+
+                return conjuntoInterseccion;
+            }
+
+            let A1 = new Set([1,2,3,4,5,6]);
+            let B1 = new Set([5,6,7,8,9,10]);
+            let resul = A1.inteseccion(B1)
+            console.log("Los elementos comunes de los conjuntos a usar la función intersección es: ")
+            console.log(resul)
+
+            // EJERCICIO CREACIÓN FUNCIÓN SUBCONJUNTO PARA PROTOTYPE, PARA EJERCICIOS CON CONJUNTOS
+            Set.prototype.subconjunto = function(otroConjunto){
+                if(this.size > otroConjunto.size){
+                    return false;
+                }else{
+                    for(let e of this){
+                        if(!otroConjunto.has(e)){
+                            return false
+                        }
+                    }
+
+                    return true
+                }
+            }
+
+            let A2 = new Set([1,2,3,4,5,6]);
+            let B2 = new Set([1,2]);
+            let sub = B2.subconjunto(A2);
+            console.log("B es un subconjuto de A? " + sub);
+            console.log("");
+
+            // EJERCICIO CREACIÓN FUNCIÓN DIFERENCIA PARA PRPTOTYPE, PARA EJERCICIOS CON CONJUNTOS
+            Set.prototype.diferencia = function(otroConjunto){
+                let diferente = new Set()
+                for(let e of this){
+                   if(!otroConjunto.has(e)){
+                    diferente.add(e)
+                   }
+                }
+                return diferente;
+            }
+            let A3 = new Set([1,2,3,4,5,6]);
+            let B3 = new Set([1,2]);
+            let subs = A3.diferencia(B3);
+            console.log("Los elementos del conjunto A que no están en B son: ");
+            console.log(subs)
+
+            // EJERCICIO CREACIÓN DE UN MAPA UTILIZANDO LA CLASE MAP
+            let mapa = new Map();
+            mapa.set("ENE", 100),
+            mapa.set("FEB", 200),
+            mapa.set("MAR", 300),
+            mapa.set("ABR", 400),
+            mapa.set("MAY", 500)
+            console.log(mapa.get("MAR"))
+
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   </script>
+    <script src="/app.js"></script> 
+     
+   
+<button id="boton" onclick="clickBoton()">Hacer click</button> 
+<br>
+<br>
+<span>Seleccionar su lenguaje favorito</span><br>
+<select id="cbxLenguajes" onchange="seleccionarLenguaje()">
+    <option value="Javascript">Javascript</option>
+    <option value="C#">C#</option>
+    <option value="Java">Java</option>
+    <option value="PHP">Php</option>
+    <option value="Python">Python</option>
+</select>
+</br>
+<span id="lblLenguajeSeleccionado"></span>
+</body>
+</html>
