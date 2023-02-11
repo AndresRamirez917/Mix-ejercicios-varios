@@ -383,4 +383,153 @@ function dividir(a, b){
     }
 }
 
-console.log(dividir(5,0))
+console.log("El resultado de la división es: " + dividir(5,5))
+console.log("Para ver el error, se debe de hacer la división por cero")
+console.log("")
+
+// EJERCICIO BUSCAR NÚMEROS EN UNA CADENA DE TEXTO
+let cadena = "La fecha de nacimiento de carolina es el 7 del 09 de 1.985"
+let patron = /\d+/g;
+//let patron2 = /\d+\.\d+/g; para que busque solo números con decimales
+let numeros1 = cadena.match(patron)
+console.log("Números contenidos en la cadena, ojo devuelve un array ");
+console.log(numeros1)
+console.log("");
+
+// EJERCICIO BUSCAR UNA CADENA EN UN TEXTO CON EXEC
+let patron2 = /carolina/;
+let cad2 = patron2.exec(patron2);
+console.log("El valor devuelto por patron2.exec almacenado en un array es ");
+console.log(cad2);
+console.log("");
+
+// EJERCICIO BUSQUEDA DE UNA CADENA CON .TEST Y ASIGNANDO UNA EXPRESIÓN REGULAR A UNA CLASE
+let pat = /\d+/g;
+let nuevaRegExp = new RegExp(pat);
+let cad3 = "123 y la concha de su madre";
+console.log("El resultado de la busqueda devuelte true o false")
+let resp = nuevaRegExp.test(cad3);
+console.log(resp)
+console.log("")
+
+// EJERCICIO EXTRAER EL NOMBRE DE UN ARCHIVO DE UNA CADENA DE CARÁCTERES
+let bookName = "el manga de los_caballeros_del_zodiaco.pdf es la hostia";
+let patronBusqueda = /([a-z_]+\.pdf)/;
+let salida = patronBusqueda.exec(bookName)
+console.log(salida)   
+console.log("")
+
+// EJERCICIO FETCH PARA TRAER DATA DE UN SERVIDOR Y MOSTRARLA 
+let url = "https://randomuser.me/api/?results=10";
+fetch(url)
+.then((response)=>response.json())
+.then((data) => {
+    console.log("La respuesta al fetch es: ")
+    console.log(data)
+}).catch((error)=>{
+    console.log(error)
+});
+console.log("")
+
+// OBTENER DATOS DE GITHUB DE UN USUARIO CON FETCH
+let url2 = "https://api.github.com/users/AndresRamirez917";
+fetch(url2)
+.then((response) => response.json())
+.then((data)=>{
+    console.log("Datos usuario github: ")
+    console.log(data);
+}).catch((error)=>{
+    console.log(error)
+});
+console.log("")
+
+// CREACIÓN DE UN ARCHIVO CON TEXTO DESDE FETCH - EJECUTAR DESDE LA CONSOLA PARA QUE FUNCIONE
+let fs = require("fs");
+fs.appendFile("F:/Andrés-Proyectos Programación/Ejerjcicios Jhon Ortiz Ordoñez/creacion_archivo_desde_fetch.txt", "hola Javascript", (error)=>{
+    if(error){
+        throw error
+    }
+    console.log("El archivo se ha generado satisfactoriamente")
+})
+
+
+// CREACIÓN DE UNA SOLICITUD ASINCRONA CON UN OBJETO XMLHTTPREQUEST -EJECUTAR DESDE CONSOLA DEL NAVEGADOR
+const xhttpp = new XMLHttpRequest();
+xhttpp.onreadystatechange = () =>{
+    if(this.readyState == 4 && this.status == 200){
+        console.log(xhttpp.responseText)
+    }
+}
+xhttpp.open("GET", "https://randomuser.me/api/?results=10", true);
+xhttpp.send()
+
+// EJERCICIO USO DE LA LIBRERÍA REQUEST DE NODE.JS PARA SOLICITUDES ASÍNCRONAS
+let request3 = require("request");
+let url3 = "https://randomuser.me/api/?results=10";
+request3(url3, (error, response, body) =>{
+    if(error){
+        throw error;
+    }
+    let result = JSON.parse(body);
+    console.log("Madre" + result)
+})
+
+// EJERCICIO PROMESAS - EJECUTAR DESDE LA CONSOLA
+let promes = new Promise(function(res, rej){
+    const a = 1;
+    const b = 1;
+
+    if(a == b){
+        res()
+    }else{
+        rej()
+    }
+});
+ promes
+ .then(function(){
+    console.log("La ejecución ha sido edsitosa")
+ }) 
+ .catch(function(){
+    console.log("la ejecución ha fallado")
+ })
+
+ // CREAR UN ARCHIVO DE TEXTO PLANO USANDO UN OBJECT PROMISE - EJECUTAR DESDE LA CONSOLA
+ let fs1 = require("fs");
+ let promesaCrearArchivo = new Promise((res, rej)=>{
+fs1.writeFile("F:/Andrés-Proyectos Programación/Ejerjcicios Jhon Ortiz Ordoñez/creacion_archivo_desde_prmise.txt", "Hola Javascript desde promise", (error) =>{
+    if(error){
+        rej(error)
+    }else{
+        res()
+    }
+})
+ })
+ 
+ promesaCrearArchivo
+ .then(() =>{
+    console.log("La creación del archivo ha sido exitosa")
+ })
+ .catch((error)=>{
+    console.log("Ha ocurrido un error" + error)
+ })
+
+ // EJERCICIO PROMESAS2 -  EJECUTAR EN CONSOLA
+ let prom = new Promise(function(res, rej){
+    // SIEMPRE VA A SER RES POR QUE ES LO ÚNICO QUE LLAMANMOS EN EL CUERPO DE LA FUNCIÓN
+    res("la suma de los valores ha sido concluída")
+ })
+ prom.then(function(mensaje){
+    console.log(mensaje);
+ },  function(error){
+    console.log(error)
+ })
+
+ // EJERCICIO MÚLTIPLES PROMESAS USANDO EL MÉTODO STATIC ALL DE PROMISE -  EJECUTAR DESDE LA CONSOLA
+ Promise.all([
+    new Promise(resolve => setTimeout(()=> resolve(1), 3000)),
+    new Promise(resolve => setTimeout(()=> resolve(2), 2000)),
+    new Promise(resolve => setTimeout(()=> resolve(3), 1000)),
+ ]).then(console.log);
+ console.log("Las promesas se ejecutan todas a la vez, no se suman los tiempos")
+ console.log("La primera dura 3 segundos, pero a la vez se ejecuta la de 2 segundos y la primera de 1 segundo")
+ console.log("Por eso es que todas se muestran de una vez")
