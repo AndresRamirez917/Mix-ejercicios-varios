@@ -533,3 +533,26 @@ fs1.writeFile("F:/Andrés-Proyectos Programación/Ejerjcicios Jhon Ortiz Ordoñe
  console.log("Las promesas se ejecutan todas a la vez, no se suman los tiempos")
  console.log("La primera dura 3 segundos, pero a la vez se ejecuta la de 2 segundos y la primera de 1 segundo")
  console.log("Por eso es que todas se muestran de una vez")
+
+ // EJERCICIO MÚLTIPLES SOLICITUDES GET COMO OBJETOS USANDO ALL
+ let urls = ["https://randomuser.me/api/?results=10", "https://randomuser.me/api/?results=5", "https://randomuser.me/api/?results=1"]
+ let solicitudes = urls.map(url => fetch(url));
+Promise.all(solicitudes)
+.then(respuestas => respuestas.forEach(r => console.log(`${r.url}; ${r.status}`)));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
