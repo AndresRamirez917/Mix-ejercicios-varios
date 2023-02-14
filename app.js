@@ -443,14 +443,6 @@ fetch(url2)
 });
 console.log("")
 
-// CREACIÓN DE UN ARCHIVO CON TEXTO DESDE FETCH - EJECUTAR DESDE LA CONSOLA PARA QUE FUNCIONE
-let fs = require("fs");
-fs.appendFile("F:/Andrés-Proyectos Programación/Ejerjcicios Jhon Ortiz Ordoñez/creacion_archivo_desde_fetch.txt", "hola Javascript", (error)=>{
-    if(error){
-        throw error
-    }
-    console.log("El archivo se ha generado satisfactoriamente")
-})
 
 
 // CREACIÓN DE UNA SOLICITUD ASINCRONA CON UN OBJETO XMLHTTPREQUEST -EJECUTAR DESDE CONSOLA DEL NAVEGADOR
@@ -462,17 +454,8 @@ xhttpp.onreadystatechange = () =>{
 }
 xhttpp.open("GET", "https://randomuser.me/api/?results=10", true);
 xhttpp.send()
+console.log("");
 
-// EJERCICIO USO DE LA LIBRERÍA REQUEST DE NODE.JS PARA SOLICITUDES ASÍNCRONAS
-let request3 = require("request");
-let url3 = "https://randomuser.me/api/?results=10";
-request3(url3, (error, response, body) =>{
-    if(error){
-        throw error;
-    }
-    let result = JSON.parse(body);
-    console.log("Madre" + result)
-})
 
 // EJERCICIO PROMESAS - EJECUTAR DESDE LA CONSOLA
 let promes = new Promise(function(res, rej){
@@ -492,27 +475,8 @@ let promes = new Promise(function(res, rej){
  .catch(function(){
     console.log("la ejecución ha fallado")
  })
-
- // CREAR UN ARCHIVO DE TEXTO PLANO USANDO UN OBJECT PROMISE - EJECUTAR DESDE LA CONSOLA
- let fs1 = require("fs");
- let promesaCrearArchivo = new Promise((res, rej)=>{
-fs1.writeFile("F:/Andrés-Proyectos Programación/Ejerjcicios Jhon Ortiz Ordoñez/creacion_archivo_desde_prmise.txt", "Hola Javascript desde promise", (error) =>{
-    if(error){
-        rej(error)
-    }else{
-        res()
-    }
-})
- })
+ console.log("");
  
- promesaCrearArchivo
- .then(() =>{
-    console.log("La creación del archivo ha sido exitosa")
- })
- .catch((error)=>{
-    console.log("Ha ocurrido un error" + error)
- })
-
  // EJERCICIO PROMESAS2 -  EJECUTAR EN CONSOLA
  let prom = new Promise(function(res, rej){
     // SIEMPRE VA A SER RES POR QUE ES LO ÚNICO QUE LLAMANMOS EN EL CUERPO DE LA FUNCIÓN
@@ -523,6 +487,7 @@ fs1.writeFile("F:/Andrés-Proyectos Programación/Ejerjcicios Jhon Ortiz Ordoñe
  },  function(error){
     console.log(error)
  })
+ console.log("");
 
  // EJERCICIO MÚLTIPLES PROMESAS USANDO EL MÉTODO STATIC ALL DE PROMISE -  EJECUTAR DESDE LA CONSOLA
  Promise.all([
@@ -530,21 +495,122 @@ fs1.writeFile("F:/Andrés-Proyectos Programación/Ejerjcicios Jhon Ortiz Ordoñe
     new Promise(resolve => setTimeout(()=> resolve(2), 2000)),
     new Promise(resolve => setTimeout(()=> resolve(3), 1000)),
  ]).then(console.log);
- console.log("Las promesas se ejecutan todas a la vez, no se suman los tiempos")
- console.log("La primera dura 3 segundos, pero a la vez se ejecuta la de 2 segundos y la primera de 1 segundo")
- console.log("Por eso es que todas se muestran de una vez")
+ console.log("Las promesas se ejecutan todas a la vez, no se suman los tiempos");
+ console.log("La primera dura 3 segundos, pero a la vez se ejecuta la de 2 segundos y la primera de 1 segundo");
+ console.log("Por eso es que todas se muestran de una vez");
+ console.log("");
 
- // EJERCICIO MÚLTIPLES SOLICITUDES GET COMO OBJETOS USANDO ALL
+ // EJERCICIO MÚLTIPLES SOLICITUDES GET COMO OBJETOS USANDO ALL - EJECUTAR DESDE LA CONSOLA
  let urls = ["https://randomuser.me/api/?results=10", "https://randomuser.me/api/?results=5", "https://randomuser.me/api/?results=1"]
  let solicitudes = urls.map(url => fetch(url));
 Promise.all(solicitudes)
 .then(respuestas => respuestas.forEach(r => console.log(`${r.url}; ${r.status}`)));
+console.log("");
+
+// EJERCICIO EXTRAER UNA SUBCADENA DE CARACTERES A PARTIR DE UNA FRASE
+let phrase = "Existen varios lenguajes de programación. Entre ellos: Javascript, Php, C++, y Java."
+let inicio = phrase.indexOf(":");
+let fin = phrase.lastIndexOf(".");
+//let fin = phrase.indexof(".", inicio); LINEA 546 Y 547 SON EQUIVALENTES 
+let listaLenguajes = phrase.substring(inicio + 1, fin)
+console.log("Indice inicial " + inicio);
+console.log("Indice final " + fin);
+console.log("Array de lenguajes " + listaLenguajes)
+let arraListaLenguajes = listaLenguajes.split(",")
+console.log("La subcadena contiene los lenguajes de programación " + arraListaLenguajes)
+
+const extraerSubcadena = function(cadena){
+    let inicio = phrase1.indexOf(":");
+    let fin = phrase1.lastIndexOf(".");
+    let arraListaLenguajes = phrase1.substring(inicio + 1, fin).split(",");
+    arraListaLenguajes.forEach((element, indice, array)=>{
+        array[indice] = element.trim();
+    })
+
+    
+    return arraListaLenguajes;
+}
+let phrase1 = 'Existen varios lenguajes de programación. Entre ellos: Javascript, Php, C++, Java.';
+let resultado3 = extraerSubcadena(phrase1);
+console.log(resultado3);
+console.log("");
+
+// EJERCICIO FUNCIÓN PARA VALIDAR SI UNA VARIABLE HA SIDO DEFINIDA, ES DIFERENTE DE VACIO Y DE NULL, 
+// Y VALIDA TAMBIÉN SI ES UNA CADENA DE CARACTERES
+// class variableExiste extends Error{
+//     constructor(mensaje){
+//         super(mensaje)
+//     }
+// }
+// const validaVariable = function(variable){
+//     try {
+//         if(typeof variable == "undefined"){
+//             return true;
+           
+//         } throw new variableExiste(`La variale ${variable} ya fue definida en el archivo`)
+//     } catch (error) {
+//         throw(error)
+//     }
+// }
+//console.log(validaVariable(auto))
 
 
+const validator = function(cadenaa){
+    return typeof cadenaa != "undefined" && cadenaa != null && cadenaa.length > 0 && typeof cadenaa.valueOf() == "string"
+}
 
+console.log(`La cadena cumpe con las condiciones? ${validator(0)}` )
+console.log("")
 
+// EJERCICIO REMPLAZO DE CARACTERES USANDO EL MÉTODO REPLACE
+let estring = "Kotlin es tremando, Python es genial";
+let expregul = /\b[A-Z][a-z]{5}\b/g;
+// let expregul = new RegExp("[A-Z][a-z]{5}", "g"); LAS LÍNEAS 567 Y 568 SON EQUIVALENTES EN SU RESULTADO
+let resfinal = estring.replace(expregul, "JavaScript")
+console.log("cadena original " + estring);
+console.log("Cadena despúes de usar el replace:")
+console.log(resfinal)
+console.log("")
 
-
+// EJERCICIO BUSQUEDA DE PALABRAS EN UNA FRASE CON REGEXP USANDO CICLO FOR
+let oracion = `Python es un lenguaje de programación interpretado cuya filosofía hace incapie en la legibilidad de su
+código.
+Se trata de un lenguaje de programación multiparadigma, ya que sopora orientación a objetos, programación imperativa y, 
+en menor medida, programación funcional. Es un lenguaje interpretado, dinámico y multiplataforma. Es administrado por la Python Software Foundation. Posee una licencia de código abierto , denominada Python Sofware Foundation
+License 2, que es compatible con la licencia pública general de GNU a partir de la versión 2.1.1 e incompatible en ciertas
+versiones anteriores`
+let patroncito = /\bm\w*a\b/g
+let pattern = /[\^*@!.,"#$%&/()=?¡!¿'\\]/gi;
+let ind = [];
+let oracion2 = oracion.split(' ')
+ for(let i = 0; i < oracion2.length; i++ ){
+        if(oracion2[i].match(patroncito)){
+         ind.push(oracion2[i].replace(pattern, ""))
+        }
+ }
+// for(element of oracion2){
+//     if(element.match(patroncito)){
+//         ind.push(element)
+//     }
+// }
+ console.log(String(ind))
+console.log("")
+ 
+// EJERCICIO BUSQUEDA DE PALABRAS EN UNA FRASE CON REGEXP USANDO CICLO WHILE
+let oracion3 = `Python es un lenguaje de programación interpretado cuya filosofía hace incapie en la legibilidad de su
+código.
+Se trata de un lenguaje de programación multiparadigma, ya que sopora orientación a objetos, programación imperativa y, 
+en menor medida, programación funcional. Es un lenguaje interpretado, dinámico y multiplataforma. Es administrado por la Python Software Foundation. Posee una licencia de código abierto , denominada Python Sofware Foundation
+License 2, que es compatible con la licencia pública general de GNU a partir de la versión 2.1.1 e incompatible en ciertas
+versiones anteriores`
+let patr = /\bm\w*a\b/g;
+let resu = "";
+let resultadoBusqueda;
+while((resultadoBusqueda = patr.exec(oracion3)) != null){
+    resu += `En ${resultadoBusqueda.index} se encontró ${resultadoBusqueda[0]}\n`
+}
+console.log(resu)
+console.log("")
 
 
 
