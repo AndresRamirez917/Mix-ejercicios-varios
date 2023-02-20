@@ -612,10 +612,108 @@ while((resultadoBusqueda = patr.exec(oracion3)) != null){
 console.log(resu)
 console.log("")
 
+// EJERJCICIO FUNCIÓN CALCULO GASTOS VIAJE
+const calculoGastosViaje = function(km, GalonGasolina){
+    // 50L ES IGUAL A 13.2 GALONES
+    // 346(PESOS) ES EL VALOR DE 1KM RECORRIDO
+    // CON EL TANQUE LLENO UN AUTOMOVIL REOCORRE EN PROMEDIO 400KM
+    // 138600 CUESTA EL TANQUE LLENO DE UNA CAMIONETA DUSTER
+    let galonGasolina;
+    let kms = km;
+    let precioGalonGasolina = 10.500;
+    galonGasolina = precioGalonGasolina;
+    let galonALitro = 3.7854;
+    let tanqueLleno = galonALitro*13.2;
+    let precioTanqueLleno = precioGalonGasolina*13.2; 
+    let peajes = 12.000;
+    let contadorPeajes = 0;
+    let precioKm = ((((GalonGasolina*13.2)/4)/10))/10
+    let totalGasolina = (kms*precioKm)*2;
+    let promedioPeajes = (((kms/84)-1)*peajes)*2 
+    let totalpeajes = Math.round(kms/84)-1
+    // console.log(promedioPeajes)
+    if(kms >=84){
+        let totalGasolina2 = totalGasolina+promedioPeajes
+        return console.log(`La gasolina cuesta ${totalGasolina.toFixed(3)}, el número de peajes más o menos es ${totalpeajes}, los peajes de ida y vuelta cuestan ${promedioPeajes.toFixed(3)}, para un total de ${totalGasolina2.toFixed(3)} pesos`)
+    }else{
+        return console.log(`La cantidad de gasolina ida y vuelta tiene un costo de ${totalGasolina.toFixed(3)} pesos`)
+    }
+    
+}
+calculoGastosViaje(37, 10.500) 
 
 
+function calcularDistancia(lat1, lon1, lat2, lon2) {
+  var radioTierra = 6371; // Radio de la Tierra en kilómetros
+  var dLat = (lat2 - lat1) * Math.PI / 180;
+  var dLon = (lon2 - lon1) * Math.PI / 180;
+  var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+          Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+          Math.sin(dLon/2) * Math.sin(dLon/2);
+  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  var distancia = radioTierra * c;
+  return distancia;
+}
+
+var distancia = calcularDistancia(5.1555556, -75.0402778, 5.2011111, -74.9127778);
+console.log("La distancia entre Fresno(Colombia) y Cartagena(Colombia) es de " + distancia + " kilómetros.");
 
 
+const calcularDistanciaEntreDosCoordenadas = (lat1, lon1, lat2, lon2) => {
+    // Convertir todas las coordenadas a radianes
+    lat1 = gradosARadianes(lat1);
+    lon1 = gradosARadianes(lon1);
+    lat2 = gradosARadianes(lat2);
+    lon2 = gradosARadianes(lon2);
+    // Aplicar fórmula
+    const RADIO_TIERRA_EN_KILOMETROS = 6371;
+    let diferenciaEntreLongitudes = (lon2 - lon1);
+    let diferenciaEntreLatitudes = (lat2 - lat1);
+    let a = Math.pow(Math.sin(diferenciaEntreLatitudes / 2.0), 2) + Math.cos(lat1) * Math.cos(lat2) * Math.pow(Math.sin(diferenciaEntreLongitudes / 2.0), 2);
+    let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return RADIO_TIERRA_EN_KILOMETROS * c;
+};
+
+const gradosARadianes = (grados) => {
+    return grados * Math.PI / 180;
+};
+//CDMX
+//19.416326917410476, -99.12479042256915
+const cdmx = {
+    latitud: 5.186694812,
+    longitud: -75.05228995
+,
+};
+// La habana
+// 23.097069089850933, -82.35006433419622
+const habana = {
+    latitud: 10.46343362, 
+    longitud: -75.45889915,
+};
+const distanciaEnKilometros = calcularDistanciaEntreDosCoordenadas(cdmx.latitud, cdmx.longitud, habana.latitud, habana.longitud);
+console.log("hola " + distanciaEnKilometros);
+
+function encontrarPalabrasRepetidas(arreglo) {
+    var palabrasRepetidas = {};
+    console.log()
+    for (var i = 0; i < arreglo.length; i++) {
+        // SACA DEL ARREGLO LAS PALABRAS Y LAS MUESTRA UNA A UNA EN VARIAS LÍNEAS
+      var palabra = arreglo[i];
+      console.log(palabra)
+      if (palabrasRepetidas[palabra] === undefined) {
+        palabrasRepetidas[palabra] = 1;
+        console.log(palabrasRepetidas[palabra])
+      } else {
+        palabrasRepetidas[palabra]++;
+        console.log(palabrasRepetidas[palabra])
+      }
+    }
+    return Object.keys(palabrasRepetidas).filter((palabra)=> {
+      return palabrasRepetidas[palabra] > 1;
+    });
+  }
+
+  console.log("El elemento repetido es: " + encontrarPalabrasRepetidas(["carlos", "andres", "andres", "ramirez", "aristizabal", "javascript", "javascript"]))
 
 
 
