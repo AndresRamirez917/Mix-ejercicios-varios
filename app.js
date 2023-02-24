@@ -655,7 +655,7 @@ function calcularDistancia(lat1, lon1, lat2, lon2) {
   return distancia;
 }
 
-var distancia = calcularDistancia(5.1555556, -75.0402778, 5.2011111, -74.9127778);
+var distancia = calcularDistancia(5.1555556, -75.0402778, 5.235322593, -74.90668089);
 console.log("La distancia entre Fresno(Colombia) y Cartagena(Colombia) es de " + distancia + " kilómetros.");
 
 
@@ -714,6 +714,106 @@ function encontrarPalabrasRepetidas(arreglo) {
   }
 
   console.log("El elemento repetido es: " + encontrarPalabrasRepetidas(["carlos", "andres", "andres", "ramirez", "aristizabal", "javascript", "javascript"]))
+  console.log("");
+
+  // EJERCICIO BUCLE SOBRE LOS VALORES DE UN OBJETO
+  let userr = {
+    name: "John",
+    age: 30
+  };
+  
+  // bucle sobre los valores
+  for (let value of Object.values(userr)) {
+    console.log(value); // John, luego 30
+  }
+  console.log("Bucle sobre los valores de un objeto")
+  console.log("");
+  // EJERCICIO INVERTIR EL ORDEN DE UN NOMBRE - NO FUNCIONA BIEN
+//   let nombre1 = "Andrés Ramirez";
+//   let patn1 = /^(\w+)\s(\w+)$/;
+//   let resultNombre = patn1.exec(nombre1);
+//   let nombreReverse = `${resultNombre[2]}, ${resultNombre[1]}`
+//   console.log("Reverse Name")
+//   console.log(nombre1);
+//   console.log(nombreReverse);
+
+// EJERCICIO REEMPLAZAR ETIQUETAS HTML POR ENTIDADES NOMBRADAS USANDO REPLACE()
+let html = `<p>Esto es un <spam>Párrafo<spam/></p>`
+console.log(html)
+html = html.replace(/</g, "&lt;");
+html = html.replace(/>/g, "&gt;");
+console.log(html);
+console.log("")
+
+// EJERCICIC CONVERTIR UNA FECHA EN FORMATO ISO 8601 EN UN OBJETO TIPO FECHA
+let fechaIso8601 = "2020-1-22T14:26:19Z"
+console.log("Fecha original " + fechaIso8601);
+fechaIso8601 = fechaIso8601.replace(/\D/g, " ");
+console.log("Fecha con caracteres sólo numéricos " + fechaIso8601);
+let components = fechaIso8601.split(" ");
+--components[1];
+// LA FECHA ORIGINAL ESTA EN MES 1, SIN ESTA LÍNEA EL MES SE SALTA AL 2 
+console.log("Fecha convertida a array " + components);
+let fecha = new Date(Date.UTC.apply(null, components));
+console.log("Comprobar si fecha es un objeto tipo fecha " + typeof fecha);
+console.log("Fecha convertida " + fecha);
+console.log("Fecha convertida con formato .toString" + fecha.toString())
+console.log("")
+
+// EJERCICIO USAR UNA FUNCIÓN ANÓNIMA COMO CALLBACK DE LA FUNCIÓN SETTIMEOUT()
+setTimeout(function(){
+    console.log("Muestra este mensaje despúes de 2 segundos")
+}, 2000);
+
+// EJERCICIO USAR UNA FUNCIÓN LAMBDA COMO CALLBACK DE LA FUNCION SETTIMEOUT()
+setTimeout(()=>{
+    console.log("Mensaje desde una función lambda usada como callback")
+}, 2000)
+
+// EJERCICIO USAR UNA FUNCIÓN EXPRESADA COMO CALLBACK DE LA FUNCIÓN SETTIMEOUT()
+const showMessage = function(){
+    console.log("Mensaje desde una función expresada, usada como callback de la función setTimeOut()");
+}
+setTimeout(showMessage, 2000);
+
+// EJERCICIO USAR UNA FUNCIÓN NOMBRADA COMO CALLBACK DE LA FUNCIÓN SETTIMEOUT()
+function showMensaje(){
+    console.log("Mensaje desde una función nombrada, usada como callback de la función setTimeOut()")
+}
+setTimeout(showMensaje, 2000)
+
+// EJERCICIO ANDRES PARA PRUEBNA DE RECORRIDO DE ARRAYS- UNA BOBADA
+let arrayNumbers = [1, 2, 3, 10, 50, 70, 100, 120, 200, 250, 300];
+    arrayNumbers.forEach((index)=>{
+        if(index > 100){
+            console.log(`Indice ${arrayNumbers.indexOf(index)}`)
+            console.log(`Valor ${index}`)
+        }   
+    })
+   
+// EJERCICIO USO DEL MÉTODO FINDINDEX() PARA ENCONTRAR UN ÍNDICE QUE CUMPLA CON UNA CONDICIÓN 
+let arrayNumbers2 = [1, 2, 3, 10, 50, 70, 100, 120, 200, 250, 300];
+let indic = arrayNumbers2.findIndex((n)=>{
+    return n > 100
+})
+console.log(indic)
+console.log("")
+
+// EJERCICIO "APLANAR UN ARREGLO" BIDIMENSIONAL USANDO CONCAT() Y APPLY(), MÁS FÁCIL CON APPLY()
+let bidimensionalArray = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]];
+let arrayAplanado = bidimensionalArray[0].concat(bidimensionalArray[1], bidimensionalArray[2], bidimensionalArray[3]);
+let arrayAplanadoConApply = bidimensionalArray.concat.apply([], bidimensionalArray);
+console.log(`Array "aplanado" con concat() ${arrayAplanado}`);
+console.log(`Array "aplanado" con apply() ${arrayAplanadoConApply}`);
+
+
+
+        
+    
+   
+
+
+
 
 
 

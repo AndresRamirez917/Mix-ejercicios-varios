@@ -334,7 +334,7 @@
 
 
    </script>
-    <script src="/app.js"></script> 
+    
      
    
 <button id="boton" onclick="clickBoton()">Hacer click</button> 
@@ -350,5 +350,74 @@
 </select>
 </br>
 <span id="lblLenguajeSeleccionado"></span>
+
+
+    <style>
+        .encontrado {
+            background-color: #ff0;
+        }
+    </style>
+
+    <form id="frmBuscar">
+        <textarea id="texto" cols="150" rows="10"></textarea>
+        <p>
+            Patrón de búsqueda: <input id="patron" type="text">
+        </p>
+    </form>
+    <button id="btnBuscar">Buscar y resaltar</button>
+
+<div id="resultado"></div>
+<script>
+    // EJERCICIO BUSCAR COINCIDENCIAS APARTIR DE UN REGEXP
+    document.getElementById("btnBuscar").onclick = function(){
+    let patron = document.getElementById("patron").value;
+    let re = new RegExp(patron, "g");/*\bm\w*a\b*/
+    let texto = document.getElementById("texto").value;
+    let resultado = texto.replace(re, `<span class="encontrado">$&</span>`);
+    document.getElementById("resultado").innerHTML = resultado;
+}
+</script>
+<br>
+<br>
+<table id="productos" border="10">
+    <tr>
+        <td>Mouse</td>
+        <td>47.9</td>
+    </tr>
+    <tr>
+        <td>Teclado</td>
+        <td>99.99</td>
+    </tr>
+    <tr>
+        <td>Monitor</td>
+        <td>299</td>
+    </tr>
+</table>
+<script>
+    // EJERCICIO CREACIÓN FILAS PARA UNA TABLA DADA
+let total = 0;
+
+let celdasPrecio = document.querySelectorAll('td + td');
+
+for(let i = 0; i < celdasPrecio.length; ++i){
+    total += parseFloat(celdasPrecio[i].firstChild.data);
+}
+
+let nuevaFila = document.createElement('tr');
+
+let celdaTotal = document.createElement('td');
+let textoCeldaTotal = document.createTextNode('Total:');
+celdaTotal.appendChild(textoCeldaTotal);
+nuevaFila.appendChild(celdaTotal);
+
+let celdaValorTotal = document.createElement('td');
+let textoCeldaValorTotal = document.createTextNode(total);
+celdaValorTotal.appendChild(textoCeldaValorTotal);
+nuevaFila.appendChild(celdaValorTotal);
+
+document.getElementById('productos').appendChild(nuevaFila);
+// AGREGA LAS DOS FILAS NUEVAFILA
+</script>
+<script src="/app.js"></script> 
 </body>
 </html>
