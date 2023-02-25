@@ -805,18 +805,162 @@ let arrayAplanado = bidimensionalArray[0].concat(bidimensionalArray[1], bidimens
 let arrayAplanadoConApply = bidimensionalArray.concat.apply([], bidimensionalArray);
 console.log(`Array "aplanado" con concat() ${arrayAplanado}`);
 console.log(`Array "aplanado" con apply() ${arrayAplanadoConApply}`);
+console.log("");
 
+// EJERCICIO ELIMINAR ELEMENTOS DE UN ARRAY CON SPLICE()
+let colors = ["Negro", "Blanco", "Rojo", "Azul", "Amarillo", "Verde"];
+let deletedColor = colors.splice(colors.indexOf("Negro"),1);
+let cadenita = colors.toString();
+console.log(cadenita)
+console.log(cadenita.split(" "))
+console.log("")
 
+// EJERCICIO RECORRER ARRAY MULTIDIMENSIONAL CON BUCLES FOR ANIDADOS
+let bidimensionalArray2 = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]];
+for(let i = 0; i < bidimensionalArray2.length; i++){
+    console.log(`Primera iteración ${bidimensionalArray2}`);
+    for(let j = 0; j < bidimensionalArray2[i].length; j++){
+        console.log(`Segunda iteración ${bidimensionalArray2}`);
+        console.log(`Tercera iteración ${bidimensionalArray2[i][j]}`)
+    }
+}
+console.log("")
 
+// EJERCICIO TABLA DE MULTIPLICAR CON BUCLES FOR ANIDADOS
+console.log("Bucle anidado for")
+for (var i = 1; i <= 1; i++) {
+    for (var j = 1; j <= 10; j++) {
+      console.log(i + " x " + j + " = " + i*j);
+    }
+  }
+  console.log("")
+
+  // EJERCICIO ITERACIÓN SOBRE OBJETOS ANIDADOS CON BUCLES FOR ANIDADOS
+  console.log("Bucle anidado for sobre objetos")
+  let objects = {
+    object1 : {
+        nombre: "Carolina",
+        apellido: "Del Rio"
+    },
+    object2 : {
+        nombre: "Andrés",
+        apellido: "Ramirez"
+    }
+  }
+  for(let key1 in objects){
+    for(let key2 in objects[key1]){
+        console.log(objects[key1][key2])
+    }
+  }
+  console.log("")
         
-    
-   
+  // EJERCICIO TABLA DE MULTIPLICAR HORIZONTAL Y VERTICAL CON BUCLES FOR ANIDADOS
+  console.log("Tabla de multiplicar horizontal con bucle anidado for")
+  for (let i = 1; i <= 10; i++) {
+    let row = "";
+    for (let j = 1; j <= 10; j++) {
+      row += i*j + " ";
+    }
+    console.log(row);
+  }
+  console.log("");
 
+  // EJERCICIO SUMA DEL TOTAL DE LOS NÚMEROS DE UN ARRAY MULTIDIMENSIONAL CON BUCLE FOR ANIDADO 
+  console.log("Suma del total de los números de un array multidimensional con bucle for anidado")
+  const matrix = [[1, 2], [3, 4]];
+  let sum = 0;
+  
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      sum += matrix[i][j];
+    }
+  }
+  console.log(sum);
+  console.log("");
 
+  // EJERCICIO PIRÁMIDE DE NÚMEROS DEL 1 AL 9
+  console.log("Pirámide de números del 1 al 9 con bucle for anidado")
+  for (let i = 1; i <= 9; i+=1) {
+    let row = "";
+    for (let j = 1; j <= i; j++) {
+      row += j + " ";
+    }
+    console.log(row);
+  }
+  console.log("");
 
+  // EJERCICIO CONTADOR DE VOCALES DE UNA CADENA CON BUCLE FOR ANIDADO
+  console.log("Contador de vocales de una cadena con bucle for anidado")
+  const text = "Hola, mundo y la kalavera de su madre!";
+  let count = 0;
+  
+  for (let i = 0; i < text.length; i++) {
+    const char = text.charAt(i);
+    if (char === "a" || char === "e" || char === "i" || char === "o" || char === "u") {
+      count++;
+    }
+  }
+  
+  console.log(count);
+  console.log("")
 
+  // EJERCICIO REMPLAZAR ELEMENTOS DE UN ARRAY CON SPLICE()
+  console.log("Reemplazar elementos de un array con splice")
+  let colores = ["Rojo", "Verde", "Amarillo", "Negro"];
+  console.log(`Array de colores original ${colores}`);
+  colores.splice(colores.indexOf("Amarillo"), 1, "Gris");
+  console.log(`Se elimina el color Amarillo y se reemplaza por Gris ${colores}`);
+  colores.splice(-1, 1, "Amatista");
+  console.log(`Se elimina el color Negro y se reemplaza por Amatista ${colores}`);
+  colores.splice(colores.indexOf("Amatista"), 2, "Azul", "Magenta");
+  console.log(`Se elimina el color Amatista y se reemplaza por los colores Azul y Magenta ${colores}`)
+  console.log("")
 
+  // EJERCICIO CREAR UNA FUNCIÓN PARA ELIMINAR MÚLTIPLES ELEMENTOS DE UN ARRAY
+  console.log("Crear una función para eliminar múltiples elementos de un array");
+  const remplazarMultiplesElementos = function(arr, valor, nuevoValor){
+    while(arr.indexOf(valor)!=-1){
+        arr.splice(arr.indexOf(valor), 1, nuevoValor)
+    }
+  }
+let Colors = ["Rojo", "Verde", "Amarillo", "Negro"];
+console.log(Colors);
+remplazarMultiplesElementos(Colors, "Amarillo", "Verde Flori Pepiado");
+console.log(Colors)
+console.log("")
 
+// EJERCICIO ELIMINAR TODAS LAS OCURRENCIAS DE UN ELEMENTO DENTRO DE UN ARRAY
+console.log("Eliminar todas las ocurrencias de un elemento dentro de un array");
+const eliminarOcurrencias = function(arr, valor){
+    while(arr.indexOf(valor) != -1){
+        arr.splice(arr.indexOf(valor), 1);
+    }
+}
+
+let Colors2 = ["Rojo", "Rojo", "Azul", "Amarillo", "Amarillo", "Verde"];
+console.log(`Array original ${Colors2}`);
+eliminarOcurrencias(Colors2, "Amarillo");
+eliminarOcurrencias(Colors2, "Rojo");
+console.log(`Nuevo array de colores ${Colors2}`)
+console.log("");
+
+// EJERCICIO EXTRAER UNA PORCIÓN DE UN ARREGLO CON LA FUNCIÓN SLICE()
+console.log("Extraer una porción de un arreglo con una función slice()")
+let Colors3 = ["Blanco", "Negro", "Rojo", "Verde", "Azul", "Gris", "Violeta"];
+let coloresPrimarios = Colors3.slice(Colors3.indexOf("Rojo"), Colors3.indexOf("Azul") + 1);
+console.log(coloresPrimarios);
+console.log("");
+
+// EJERCICIO APLICAR UNA FUNCIÓN A CADA ELEMENTO DE UN ARRAY
+console.log("Aplicar una función a cada elemento de un array");
+let colors4 = ["Negro", "Verde", "Sapote", "Vino Tinto", "Negro"];
+console.log(colors4)
+colors4.forEach((color, indice, colors4) =>{
+    if(color ==="Negro"){
+        colors4[indice] = "#####";
+    }
+})
+console.log(colors4)
 
 
 
