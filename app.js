@@ -1,4 +1,5 @@
 // EJERCICIO DIFERENCIA OBJETO Y MAPA
+console.log("DIFERENCIA ENTRE OBJETO Y MAPA")
 Persona = {
     nombre: "Andrés",
     apellido: "Ramirez",
@@ -44,6 +45,7 @@ console.log("Llamado de la función con call " + sumar.call(null, 2, 3));
 console.log("")
 
 // USO DE FUNCIÓN ANÓNIMA COMO PROPIEDAD DE UN OBJETO
+console.log("USO DE FUNCIÓN ANÓNIMA COMO PROPIEDAD DE UN OBJETO")
 let auto = {
     color: "rojo",
     radio: true,
@@ -57,6 +59,7 @@ console.log("Radio apagado?: " + auto.encenderRadio() + ", el radio se acaba de 
 console.log("")
 
 // LLAMADO DE UN VALOR RETORNADO DE UNA FUNCIÓN PARA SER USADO EN OTRA
+console.log("LLAMANDO DE UN VALOR RETORNADO DE UNA FUNCIÓN PARA SER USADO EN OTRA")
 const Sum = function(a, b){
     return a + b;
 }
@@ -71,6 +74,7 @@ console.log("El resultado de la resta entre el valor retornado de Sum() y la fun
 console.log("")
 
 // EJERCICIO USO DE RETURN
+console.log("USO DE RETURN")
 const sumaArray = function(array){
     return array.reduce((valorActual, valorSiguiente)=>{
         return valorActual + valorSiguiente
@@ -85,6 +89,7 @@ console.log(sumArr + 5)
 console.log("")
 
 // EJERCICIO USO PARAMETROS REST
+console.log("USO DE PARAMETROS REST")
 const add = function(...valores){
     return valores.reduce((valorActual, valorSiguiente) =>{
         return valorActual + valorSiguiente
@@ -96,6 +101,7 @@ console.log(sumTotal)
 console.log("")
 
 // EJERCICIO ACCEDER A ATRIBUTOS DE UN OBJETO A TRAVÉS DE UNA FUNCIÓN CON DESTRUCTURACIÓN
+console.log("ACCEDER A ATRIBUTOS DE UN OBJETO A TRAVÉS DE UNA FUNCIÓN CON DESTRUCTURACIÓN")
 const accederAtributo = function({nombre, edad}){
      console.log("Atributo nombre accedido desde el objeto " + nombre); 
      console.log("Atributo edad accedido desde el objeto " + edad);
@@ -111,6 +117,7 @@ accederAtributo(user)
 console.log("")
 
 //  EJERCICIO CON FUNCIONES DE EJECUCIÓN INMEDIATA O IIFE
+console.log("FUNCIONES DE EJECUCIÓN INMEDIATA O IIFE")
 let numbers = [1,2,3,4,5];
 let resultad = (function(valores){
         return valores.reduce((numeroActual, numeroSiguiente)=>{
@@ -121,6 +128,7 @@ console.log("La suma de los valores es: " + resultad)
 console.log("")
 
 // EJERJCICIO FUNCIONES GENERADORAS USO DE SENTENCIAS YIELD PARA ENTREGAR OBJETOS DE FORMA PARCIAL
+console.log("FUNCIONES GENERADORAS USO DE SENTENCIAS YIELD PARA ENTREGAR OBJETOS DE FORMA PARCIAL")
 function * generarCadenas(){
     yield "JavaScript";
     yield "es";
@@ -135,6 +143,7 @@ console.log(obtenerCadenas.next());
 console.log("")
 
 // EJERCICIO FUNCIONES FLECHA
+console.log("FUNCIONES FLECHA")
 let nume = [1,2,3,4,5]
 const sumaFlecha = nume.reduce((valorActual, valorSiguiente) => {return valorActual + valorSiguiente});
 
@@ -142,6 +151,7 @@ console.log("La suma de los valores con la función flecha es: " + sumaFlecha)
 console.log("")
 
 // PARAMETRO POR DEFECTO DE UNA FUNCIÓN
+console.log("PARÁMETRO POR DEFECTO DE UNA FUNCIÓN")
 const restar = function(a=4,b=5){
     return a + b;
 }
@@ -151,6 +161,7 @@ console.log("Pasándole parametros a la función " + restar(6,1))
 console.log("")
 
 // EJERCICIO PASAR PARAMETROS A UNA FUNCIÓN GENERADORA
+console.log("PASAR PARÁMETROS A UNA FUCNIÓN GENERADORA")
 const generaEnteros = function * (limite){
     for(let i = 1; i < limite; i ++){
         yield i
@@ -166,6 +177,7 @@ console.log(genEnt.next());
 console.log("")
 
 // EJERCICIO PASAR UN ARREGLO A UNA FUNCIÓN GENERADORA
+console.log("PASAR UN ARREGLO A UNA FUNCIÓN GENERADORA")
 let ents = [1,2,3,4,5]
 const generaEnts = function * (array){
     for(let i  of array){
@@ -180,11 +192,13 @@ for(let val of genents){
 console.log("")
 
 // EJERCICIO SECUENCIA DE ESCAPE EN PLANTILLAS 
+console.log("SECUENCIA DE ESCAPE EN PLANTILLAS")
 let frase = `\t javascript es una chimbita, \n y estamos aprendiendo a diario un poquito mas que ayer`
 console.log(frase)
 console.log("")
 
 // EJERCICIO USO DE SYMBOL PARA DARLE UNA PROPIEDAD ÚNICA A UN OBJETO
+console.log("USO DE SYMBOL PARA DARLE UNA PROPIEDAD ÚNICA A UN OBJETO")
 const ID = Symbol();
 let People = {
     [ID]: "12345",
@@ -196,6 +210,7 @@ console.log(People)
 console.log("")
 
 // EJERCICIO DARLE A UNA PROPIEDAD SYMBOL UNA DESCRIPCIÓN
+console.log("DARLE A UNA PROPIEDAD SYMBOL UNA DESCRIPCIÓN")
 const ID2 = Symbol("Mensaje descriptivo para la propiedad symbol");
 let People2 = {
     [ID2]: "12345",
@@ -207,6 +222,7 @@ console.log(People2)
 console.log("")
 
 // EJERCICIO CREACIÓN DE PROXY
+console.log("CREACIÓN DE PROXY")
 let handler = {
     get: function(target, name){
         return name in target ? target[name] : "No existe la propiedad " + name;
@@ -218,6 +234,7 @@ console.log(`Creación de un proxy para conocer la edad de ${proxy.nombre} = ${p
 console.log("")
 
 // EJERCICIO USO DE UN PROXY PARA LA VALIDACIÓN DE PROPIEDADES DE UN OBJETO
+console.log("USO DE UN PROXY PARA LA VALIDACIÓN DE PROPIEDADES DE UN OBJETO")
 let validador = {
     set: function(objeto, propiedad, valor){
         if(propiedad === "edad"){
@@ -244,6 +261,7 @@ console.log("Validación de propiedades de un objeto usando un proxy" + proxy2)
 console.log("")
 
 // EJERCICIO USO DE PROXY PARA VALIDAR SI UNA LLAVE EN UN OBJETO EMPIEZA POR UN DETERMINADO CARACTER
+console.log("USO DE PROXY PARA VALIDAR SI UNA LLAVE EN UN OBJETO EMPIEZA POR UN DETERMINADO CARACTER")
 let handler1 = {
     has (target, llave){
         if(llave[0] === "_"){
@@ -267,6 +285,7 @@ console.log("_nombre" in persona3)
 console.log("")
 
 // EJERCICIO GETTERS Y SETTERS PARA OBTENER Y ASIGNAR VALORES A LOS ATRIBUTOS DE UN OBJETO
+console.log("GETTETS Y SETTERS PARA OBTENER Y ASIGNAR VALORES A LOS ATRIBUTOS DE UN OBJETO")
 class Persona4 {
     constructor(nombre, apellido, edad ){
         this._nombre = nombre;
@@ -310,6 +329,7 @@ console.log("Después de asignar el nuevo nombre ahora el atributo tiene el valo
 console.log("")
 
 // EJERCICIO CREACIÓN DE HERENCIA
+console.log("CREACIÓN DE HERENCIA")
 class Estudiante extends Persona4{
     constructor(nombre, apellido, email, mayor){
         super(nombre, apellido);
@@ -324,6 +344,7 @@ console.log(estudiante.saludar())
 console.log("")
 
 // EJERCICIO CARGA DE FUNCIÓN A TRAVÉS DE LA ETIQUETA BODY
+console.log("CARGA DE FUNCIÓN A TRAVÉS DE LA ETIQUETA BODY")
 const cargaBody = function(){
     console.log("Mensaje cargado desde el llamado de la función en la etiqueta body del index.html")
     console.log("Se pueden ejecutar funciones desde el index.html sin estar dentro de unas etiquetas script")
@@ -331,6 +352,7 @@ const cargaBody = function(){
 console.log("")
 
 // EJERCICIO LLAMADO DE FUNCIÓN DESDE HTML SIN LA ETIQUETA SCRIPT
+console.log("LLAMADO DE FUCIÓN DESDE HTML SIN LA ETIQUETA SCRIPT")
 let clickBoton = function(){
     document.getElementById("#boton")
     boton.innerText = "hola"
@@ -346,6 +368,7 @@ function seleccionarLenguaje(){
 console.log("")
 
 // EJERCICIO CAPTURA DE ERRORES DE JAVASCRIPT Y CAMBIARLOS POR ERRORES PERSONALIZADOS
+console.log("CAPTURA DE ERRORES DE JAVASCRIPT Y CAMBIARLOS POR ERRORES PERSONALIZADOS")
 let arrayy= [];
 try {
     arrayy = new Array(-1)    
@@ -356,6 +379,7 @@ console.log("Ejercicio para captura de errores")
 console.log("")
 
 // EJERCICIO CAPTURA DE ERRORES DE JAVASCRIPT Y CAMBIARLOS POR ERRORES PERSONALIZADOS
+console.log("CAPTURA DE ERRORES DE JAVASCRIPT Y CAMBIARLOS POR ERRORES PERSONALIZADOS 2")
 let resulta;
 try {
     resulta = 5/null   
@@ -366,6 +390,7 @@ console.log("Ejercicio para captura de errores de tipo Reference se debe ejecuta
 console.log("")
 
 // EJERCICIO CREACIÓN DE UNA CLASE ERROR PERSONALIZADO
+console.log("CREACIÓN DE UNA CLASE ERROR PERSONALIZADO")
 class divisionCeroError extends Error{
     constructor(mensaje){
         super(mensaje)
@@ -388,6 +413,7 @@ console.log("Para ver el error, se debe de hacer la división por cero")
 console.log("")
 
 // EJERCICIO BUSCAR NÚMEROS EN UNA CADENA DE TEXTO
+console.log("BUSCAR NÚMEROS EN UNA CADENA DE TEXTO")
 let cadena = "La fecha de nacimiento de carolina es el 7 del 09 de 1.985"
 let patron = /\d+/g;
 //let patron2 = /\d+\.\d+/g; para que busque solo números con decimales
@@ -397,6 +423,7 @@ console.log(numeros1)
 console.log("");
 
 // EJERCICIO BUSCAR UNA CADENA EN UN TEXTO CON EXEC
+console.log("BUSCAR UNA CADENA EN UN TEXTO CON EXEC")
 let patron2 = /carolina/;
 let cad2 = patron2.exec(patron2);
 console.log("El valor devuelto por patron2.exec almacenado en un array es ");
@@ -404,6 +431,7 @@ console.log(cad2);
 console.log("");
 
 // EJERCICIO BUSQUEDA DE UNA CADENA CON .TEST Y ASIGNANDO UNA EXPRESIÓN REGULAR A UNA CLASE
+console.log("BÚSQUEDA DE UNA CADENA CON .TEST Y ASIGNANDO UNA EXPRESIÓN REGULAR A UNA CLASE")
 let pat = /\d+/g;
 let nuevaRegExp = new RegExp(pat);
 let cad3 = "123 y la concha de su madre";
@@ -413,6 +441,7 @@ console.log(resp)
 console.log("")
 
 // EJERCICIO EXTRAER EL NOMBRE DE UN ARCHIVO DE UNA CADENA DE CARÁCTERES
+console.log("EXTRAER EL NOMBRE DE UN ARCHIVO DE UNA CADENA DE CARÁCTERES")
 let bookName = "el manga de los_caballeros_del_zodiaco.pdf es la hostia";
 let patronBusqueda = /([a-z_]+\.pdf)/;
 let salida = patronBusqueda.exec(bookName)
@@ -420,6 +449,7 @@ console.log(salida)
 console.log("")
 
 // EJERCICIO FETCH PARA TRAER DATA DE UN SERVIDOR Y MOSTRARLA 
+console.log("FETCH PARA TRAER DATA DE UN SERVIDOR Y MOSTRARLA")
 let url = "https://randomuser.me/api/?results=10";
 fetch(url)
 .then((response)=>response.json())
@@ -432,6 +462,7 @@ fetch(url)
 console.log("")
 
 // OBTENER DATOS DE GITHUB DE UN USUARIO CON FETCH
+console.log("DATOS DE GITHUB DE UN USUARIO CON FETCH")
 let url2 = "https://api.github.com/users/AndresRamirez917";
 fetch(url2)
 .then((response) => response.json())
@@ -446,6 +477,7 @@ console.log("")
 
 
 // CREACIÓN DE UNA SOLICITUD ASINCRONA CON UN OBJETO XMLHTTPREQUEST -EJECUTAR DESDE CONSOLA DEL NAVEGADOR
+console.log("CREACIÓN DE UNA SOLICITUD ASIGNADA CON UN OBJETO XMLHTTPREQUEST - EJECUTAR DESDE CONSOLA DEL NAVEGADOR")
 const xhttpp = new XMLHttpRequest();
 xhttpp.onreadystatechange = () =>{
     if(this.readyState == 4 && this.status == 200){
@@ -458,6 +490,7 @@ console.log("");
 
 
 // EJERCICIO PROMESAS - EJECUTAR DESDE LA CONSOLA
+console.log("PROMESAS - EJECUTAR DESDE LA CONSOLA")
 let promes = new Promise(function(res, rej){
     const a = 1;
     const b = 1;
@@ -478,6 +511,7 @@ let promes = new Promise(function(res, rej){
  console.log("");
  
  // EJERCICIO PROMESAS2 -  EJECUTAR EN CONSOLA
+ console.log("PROMESAS2 - EJECUTAR EN CONSOLA")
  let prom = new Promise(function(res, rej){
     // SIEMPRE VA A SER RES POR QUE ES LO ÚNICO QUE LLAMANMOS EN EL CUERPO DE LA FUNCIÓN
     res("la suma de los valores ha sido concluída")
@@ -490,6 +524,7 @@ let promes = new Promise(function(res, rej){
  console.log("");
 
  // EJERCICIO MÚLTIPLES PROMESAS USANDO EL MÉTODO STATIC ALL DE PROMISE -  EJECUTAR DESDE LA CONSOLA
+ console.log("MÚLTIPLES PROMESAS USANDO EL MÉTODO STATIC ALL DE PROMISE - EJECUTAR DESDE LA CONSOLA")
  Promise.all([
     new Promise(resolve => setTimeout(()=> resolve(1), 3000)),
     new Promise(resolve => setTimeout(()=> resolve(2), 2000)),
@@ -501,6 +536,7 @@ let promes = new Promise(function(res, rej){
  console.log("");
 
  // EJERCICIO MÚLTIPLES SOLICITUDES GET COMO OBJETOS USANDO ALL - EJECUTAR DESDE LA CONSOLA
+ console.log("MÚLTIPLES SOLICITUDES GET COMO OBJETOS USANDO ALL - EJECUTAR DESDE LA CONSOLA")
  let urls = ["https://randomuser.me/api/?results=10", "https://randomuser.me/api/?results=5", "https://randomuser.me/api/?results=1"]
  let solicitudes = urls.map(url => fetch(url));
 Promise.all(solicitudes)
@@ -508,6 +544,7 @@ Promise.all(solicitudes)
 console.log("");
 
 // EJERCICIO EXTRAER UNA SUBCADENA DE CARACTERES A PARTIR DE UNA FRASE
+console.log("EXTRAER UNA SUBCANDENA DE CARACTERES A PARTIR DE UNA FRASE")
 let phrase = "Existen varios lenguajes de programación. Entre ellos: Javascript, Php, C++, y Java."
 let inicio = phrase.indexOf(":");
 let fin = phrase.lastIndexOf(".");
@@ -554,7 +591,7 @@ console.log("");
 // }
 //console.log(validaVariable(auto))
 
-
+console.log("UNDEFINED Y NULL")
 const validator = function(cadenaa){
     return typeof cadenaa != "undefined" && cadenaa != null && cadenaa.length > 0 && typeof cadenaa.valueOf() == "string"
 }
@@ -563,6 +600,7 @@ console.log(`La cadena cumpe con las condiciones? ${validator(0)}` )
 console.log("")
 
 // EJERCICIO REMPLAZO DE CARACTERES USANDO EL MÉTODO REPLACE
+console.log("REEMPLAZO DE CARÁCTERES USANDO EL MÉTODO REPLACE")
 let estring = "Kotlin es tremando, Python es genial";
 let expregul = /\b[A-Z][a-z]{5}\b/g;
 // let expregul = new RegExp("[A-Z][a-z]{5}", "g"); LAS LÍNEAS 567 Y 568 SON EQUIVALENTES EN SU RESULTADO
@@ -573,6 +611,7 @@ console.log(resfinal)
 console.log("")
 
 // EJERCICIO BUSQUEDA DE PALABRAS EN UNA FRASE CON REGEXP USANDO CICLO FOR
+console.log("BÚSQUEDA DE PALABRAS EN UNA FRASE CON REGEXP USANDO CICLO FOR")
 let oracion = `Python es un lenguaje de programación interpretado cuya filosofía hace incapie en la legibilidad de su
 código.
 Se trata de un lenguaje de programación multiparadigma, ya que sopora orientación a objetos, programación imperativa y, 
@@ -597,6 +636,7 @@ let oracion2 = oracion.split(' ')
 console.log("")
  
 // EJERCICIO BUSQUEDA DE PALABRAS EN UNA FRASE CON REGEXP USANDO CICLO WHILE
+console.log("BÚSQUEDA DE PALABRAS EN UNA FRASE CON REGEXP USANDO CICLO WHILE")
 let oracion3 = `Python es un lenguaje de programación interpretado cuya filosofía hace incapie en la legibilidad de su
 código.
 Se trata de un lenguaje de programación multiparadigma, ya que sopora orientación a objetos, programación imperativa y, 
@@ -613,6 +653,7 @@ console.log(resu)
 console.log("")
 
 // EJERJCICIO FUNCIÓN CALCULO GASTOS VIAJE
+console.log("FUNCIÓN CÁLCULO GASTOS VIAJE")
 const calculoGastosViaje = function(km, GalonGasolina){
     // 50L ES IGUAL A 13.2 GALONES
     // 346(PESOS) ES EL VALOR DE 1KM RECORRIDO
@@ -717,6 +758,7 @@ function encontrarPalabrasRepetidas(arreglo) {
   console.log("");
 
   // EJERCICIO BUCLE SOBRE LOS VALORES DE UN OBJETO
+  console.log("BUCLE SOBRE LOS VALORES DE UN OBJETO")
   let userr = {
     name: "John",
     age: 30
@@ -738,6 +780,7 @@ function encontrarPalabrasRepetidas(arreglo) {
 //   console.log(nombreReverse);
 
 // EJERCICIO REEMPLAZAR ETIQUETAS HTML POR ENTIDADES NOMBRADAS USANDO REPLACE()
+console.log("REEMPLAZAR ETIQUETAS HTML POR ENTIDADES NOMBRADAS USANDO REPLACE()")
 let html = `<p>Esto es un <spam>Párrafo<spam/></p>`
 console.log(html)
 html = html.replace(/</g, "&lt;");
@@ -746,6 +789,7 @@ console.log(html);
 console.log("")
 
 // EJERCICIC CONVERTIR UNA FECHA EN FORMATO ISO 8601 EN UN OBJETO TIPO FECHA
+console.log("CONVERTIR UNA FECHA EN FORMATO ISO 9601 EN UN OBJETO TIPO FECHA")
 let fechaIso8601 = "2020-1-22T14:26:19Z"
 console.log("Fecha original " + fechaIso8601);
 fechaIso8601 = fechaIso8601.replace(/\D/g, " ");
@@ -761,28 +805,33 @@ console.log("Fecha convertida con formato .toString" + fecha.toString())
 console.log("")
 
 // EJERCICIO USAR UNA FUNCIÓN ANÓNIMA COMO CALLBACK DE LA FUNCIÓN SETTIMEOUT()
+console.log("USAR UNA FUNCIÓN ANÓNIMA COMO CALLBACK DE LA FUNCIÓN SETTIMEOUT()")
 setTimeout(function(){
     console.log("Muestra este mensaje despúes de 2 segundos")
 }, 2000);
 
 // EJERCICIO USAR UNA FUNCIÓN LAMBDA COMO CALLBACK DE LA FUNCION SETTIMEOUT()
+console.log("USAR UNA FUNCIÓN LAMBDA COMO CALLBACK DE LA FUNCIÓN SETTIMEOUT()")
 setTimeout(()=>{
     console.log("Mensaje desde una función lambda usada como callback")
 }, 2000)
 
 // EJERCICIO USAR UNA FUNCIÓN EXPRESADA COMO CALLBACK DE LA FUNCIÓN SETTIMEOUT()
+console.log("USAR UNA FUNCIÓN EXPRESADA COMO CALLBACK DE LA FUNCIÓN SETTIMEOUT()")
 const showMessage = function(){
     console.log("Mensaje desde una función expresada, usada como callback de la función setTimeOut()");
 }
 setTimeout(showMessage, 2000);
 
 // EJERCICIO USAR UNA FUNCIÓN NOMBRADA COMO CALLBACK DE LA FUNCIÓN SETTIMEOUT()
+console.log("USAR UNA FUNCIÓN NOMBRADA COMO CALLBACK DE LA FUNCIÓN SETTIMEOUT()")
 function showMensaje(){
     console.log("Mensaje desde una función nombrada, usada como callback de la función setTimeOut()")
 }
 setTimeout(showMensaje, 2000)
 
 // EJERCICIO ANDRES PARA PRUEBNA DE RECORRIDO DE ARRAYS- UNA BOBADA
+console.log("ANDRÉS PARA PRUEBA DE RECORRIDO DE ARRAYS - UNA BOBADA")
 let arrayNumbers = [1, 2, 3, 10, 50, 70, 100, 120, 200, 250, 300];
     arrayNumbers.forEach((index)=>{
         if(index > 100){
@@ -792,6 +841,7 @@ let arrayNumbers = [1, 2, 3, 10, 50, 70, 100, 120, 200, 250, 300];
     })
    
 // EJERCICIO USO DEL MÉTODO FINDINDEX() PARA ENCONTRAR UN ÍNDICE QUE CUMPLA CON UNA CONDICIÓN 
+console.log("USO DEL MÉTODO FINDINDEX() PARA ENCONTRAR UN ÍNDICE QUE CUMPLA CON UNA CONDICIÓN")
 let arrayNumbers2 = [1, 2, 3, 10, 50, 70, 100, 120, 200, 250, 300];
 let indic = arrayNumbers2.findIndex((n)=>{
     return n > 100
@@ -800,6 +850,7 @@ console.log(indic)
 console.log("")
 
 // EJERCICIO "APLANAR UN ARREGLO" BIDIMENSIONAL USANDO CONCAT() Y APPLY(), MÁS FÁCIL CON APPLY()
+console.log("APLANAR UN ARREGLO BIDIMENSIONAL USANDO CONCAT() Y APPLY(), MAS FÁCIL CON APPLY()")
 let bidimensionalArray = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]];
 let arrayAplanado = bidimensionalArray[0].concat(bidimensionalArray[1], bidimensionalArray[2], bidimensionalArray[3]);
 let arrayAplanadoConApply = bidimensionalArray.concat.apply([], bidimensionalArray);
@@ -808,6 +859,7 @@ console.log(`Array "aplanado" con apply() ${arrayAplanadoConApply}`);
 console.log("");
 
 // EJERCICIO ELIMINAR ELEMENTOS DE UN ARRAY CON SPLICE()
+console.log("ELIMINAR ELEMENTOS DE UN ARRAY CON SPLICE()")
 let colors = ["Negro", "Blanco", "Rojo", "Azul", "Amarillo", "Verde"];
 let deletedColor = colors.splice(colors.indexOf("Negro"),1);
 let cadenita = colors.toString();
@@ -816,6 +868,7 @@ console.log(cadenita.split(" "))
 console.log("")
 
 // EJERCICIO RECORRER ARRAY MULTIDIMENSIONAL CON BUCLES FOR ANIDADOS
+console.log("RECORRER ARRAY MULTIDIMENSIONAL CON BUCLES FOR ANIDADOS")
 let bidimensionalArray2 = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]];
 for(let i = 0; i < bidimensionalArray2.length; i++){
     console.log(`Primera iteración ${bidimensionalArray2}`);
@@ -827,6 +880,7 @@ for(let i = 0; i < bidimensionalArray2.length; i++){
 console.log("")
 
 // EJERCICIO TABLA DE MULTIPLICAR CON BUCLES FOR ANIDADOS
+console.log("TABLA DE MULTIPLICAR CON BUCLES FOR ANIDADOS")
 console.log("Bucle anidado for")
 for (var i = 1; i <= 1; i++) {
     for (var j = 1; j <= 10; j++) {
@@ -836,6 +890,7 @@ for (var i = 1; i <= 1; i++) {
   console.log("")
 
   // EJERCICIO ITERACIÓN SOBRE OBJETOS ANIDADOS CON BUCLES FOR ANIDADOS
+  console.log("ITERACIÓN SOBRE OBJETOS ANIDADOS CON BUCLES FOR ANIDADOS")
   console.log("Bucle anidado for sobre objetos")
   let objects = {
     object1 : {
@@ -855,7 +910,7 @@ for (var i = 1; i <= 1; i++) {
   console.log("")
         
   // EJERCICIO TABLA DE MULTIPLICAR HORIZONTAL Y VERTICAL CON BUCLES FOR ANIDADOS
-  console.log("Tabla de multiplicar horizontal con bucle anidado for")
+  console.log("TABLA DE MULTIPLICAR HORIZONTAL Y VERTICAL CON BUCLES FOR ANIDADOS")
   for (let i = 1; i <= 10; i++) {
     let row = "";
     for (let j = 1; j <= 10; j++) {
@@ -866,7 +921,7 @@ for (var i = 1; i <= 1; i++) {
   console.log("");
 
   // EJERCICIO SUMA DEL TOTAL DE LOS NÚMEROS DE UN ARRAY MULTIDIMENSIONAL CON BUCLE FOR ANIDADO 
-  console.log("Suma del total de los números de un array multidimensional con bucle for anidado")
+  console.log("SUMA DEL TOTAL DE LOS NÚMEROS DE UN ARRAY MULTIDIMENSIOANL CON BUCLE FOR ANIDADO")
   const matrix = [[1, 2], [3, 4]];
   let sum = 0;
   
@@ -879,7 +934,7 @@ for (var i = 1; i <= 1; i++) {
   console.log("");
 
   // EJERCICIO PIRÁMIDE DE NÚMEROS DEL 1 AL 9
-  console.log("Pirámide de números del 1 al 9 con bucle for anidado")
+  console.log("PIRÁMIDA DE NÚMEROS DEL 1 AL 9 CON BUCLE FOR ANIDADO")
   for (let i = 1; i <= 9; i+=1) {
     let row = "";
     for (let j = 1; j <= i; j++) {
@@ -890,7 +945,7 @@ for (var i = 1; i <= 1; i++) {
   console.log("");
 
   // EJERCICIO CONTADOR DE VOCALES DE UNA CADENA CON BUCLE FOR ANIDADO
-  console.log("Contador de vocales de una cadena con bucle for anidado")
+  console.log("CONTADOR DE VOCALES DE UNA CADENA CON BUCLE FOR ANIDADO")
   const text = "Hola, mundo y la kalavera de su madre!";
   let count = 0;
   
@@ -905,7 +960,7 @@ for (var i = 1; i <= 1; i++) {
   console.log("")
 
   // EJERCICIO REMPLAZAR ELEMENTOS DE UN ARRAY CON SPLICE()
-  console.log("Reemplazar elementos de un array con splice")
+  console.log("REEMPLAZAR ELEMENTOS DE UN ARRAY CON SPLICE()")
   let colores = ["Rojo", "Verde", "Amarillo", "Negro"];
   console.log(`Array de colores original ${colores}`);
   colores.splice(colores.indexOf("Amarillo"), 1, "Gris");
@@ -917,7 +972,7 @@ for (var i = 1; i <= 1; i++) {
   console.log("")
 
   // EJERCICIO CREAR UNA FUNCIÓN PARA ELIMINAR MÚLTIPLES ELEMENTOS DE UN ARRAY
-  console.log("Crear una función para eliminar múltiples elementos de un array");
+  console.log("CREAR UNA FUNCIÓN PARA ELIMINAR MÚLTIPLES ELEMENTOS DE UN ARRAY")
   const remplazarMultiplesElementos = function(arr, valor, nuevoValor){
     while(arr.indexOf(valor)!=-1){
         arr.splice(arr.indexOf(valor), 1, nuevoValor)
@@ -930,7 +985,7 @@ console.log(Colors)
 console.log("")
 
 // EJERCICIO ELIMINAR TODAS LAS OCURRENCIAS DE UN ELEMENTO DENTRO DE UN ARRAY
-console.log("Eliminar todas las ocurrencias de un elemento dentro de un array");
+console.log("ELIMINAR TODAS LAS OCURRENCIAS DE UN ELEMENTO DENTRO DE UN ARRAY")
 const eliminarOcurrencias = function(arr, valor){
     while(arr.indexOf(valor) != -1){
         arr.splice(arr.indexOf(valor), 1);
@@ -945,14 +1000,14 @@ console.log(`Nuevo array de colores ${Colors2}`)
 console.log("");
 
 // EJERCICIO EXTRAER UNA PORCIÓN DE UN ARREGLO CON LA FUNCIÓN SLICE()
-console.log("Extraer una porción de un arreglo con una función slice()")
+console.log("EXTRAER UNA PORCIÓN DE UN ARREGLO CON LA FUNCIÓN SLICE()")
 let Colors3 = ["Blanco", "Negro", "Rojo", "Verde", "Azul", "Gris", "Violeta"];
 let coloresPrimarios = Colors3.slice(Colors3.indexOf("Rojo"), Colors3.indexOf("Azul") + 1);
 console.log(coloresPrimarios);
 console.log("");
 
 // EJERCICIO APLICAR UNA FUNCIÓN A CADA ELEMENTO DE UN ARRAY
-console.log("Aplicar una función a cada elemento de un array");
+console.log("APLICAR UNA FUNCIÓN A CADA ELEMENTO DE UN ARRAY");
 let colors4 = ["Negro", "Verde", "Sapote", "Vino Tinto", "Negro"];
 console.log(colors4)
 colors4.forEach((color, indice, colors4) =>{
@@ -960,7 +1015,274 @@ colors4.forEach((color, indice, colors4) =>{
         colors4[indice] = "#####";
     }
 })
-console.log(colors4)
+console.log(colors4);
+console.log("");
+
+// EJERCICIO CAMBIAR UN ELEMENTO DE UN ARRAY SIN ALTERAR EL ARRAY ORIGINAL
+console.log("CAMBIAR UN ELEMENTO DE UN ARRAY SIN ALTERAR EL ARRAY ORIGINAL")
+let colors5 = ["Negro", "Verde", "Sapote", "Vino Tinto", "Negro"];
+console.log(colors5);
+let resultado = colors5.map((color, indice, colors5)=>{
+    return color == "Negro" ? "#####" : color
+});
+console.log(`Array con cambios ${resultado}`)
+console.log(`Array original ${colors5}`);
+console.log("");
+
+// EJERCICIO CAMBIAR UN ELEMENTO DE UN ARRAY SIN ALTERAR EL ARRAY ORIGINAL SIMPLIFICADO
+console.log("CAMBIAR UN ELEMENTO DE UN ARRAY SIN ALTERAR EL ARRAY ORIGINAL VERSIÓN SIMPLIFICADA")
+function cambiarElementos(color, indice, colors6){
+    (color == "Negro") && (colors6[indice] = "#####")
+}
+let colors6 = ["Negro", "Verde", "Sapote", "Vino Tinto", "Negro"];
+console.log(colors6);
+colors6.forEach(cambiarElementos)
+console.log(`Nuevo Array ${colors6}`);
+console.log("");
+
+// EJERCICIO CONVERTIR DECIMALES A HEXADECIMALES CON MAP() Y TOSTRING(BASEX)
+console.log("CONVERTIR DECIMALES A HEXADECIMALES CON MAP() Y TOSTRING(BASEX)")
+let arrayDecimales = [29, 31, 255, 5, 17, 23, 101, 23537];
+let hexadecimales = arrayDecimales.map((decimales)=>{
+    return decimales.toString(16)
+})
+console.log(`${arrayDecimales}`);
+console.log(`${hexadecimales}`);
+console.log("");
+
+// EJERCICIO USO DEL MÉTODO FILTER PARA ELIMINAR UN ELEMENTO DE UN ARRAY
+console.log("USO DEL MÉTODO FILTER PARA ELIMINAR UN ELEMENTO DE UN ARRAY")
+let colors77 = ["Negro", "Verde", "Sapote", "Vino Tinto", "Negro"];
+console.log(colors77)
+let nuevoColors = colors77.filter((color)=>{
+    return color != "Negro"
+})
+console.log(`Resultado del array usando el método .filter es ${nuevoColors}`)
+console.log("");
+
+// EJERCICIO USO DEL MÉTODO EVERY PARA QUE TODOS LOS ELEMENTOS DE UN ARRAY CUMPLAN UNA CONDICIÓN
+let numsMayoresDiez = [10,11,12,13,14,15,16];
+let resNumsMayoresDiez = numsMayoresDiez.every((number)=>{
+    return number >= 10;
+})
+console.log(`Todos los elementos del array cumplen la condición?: ${resNumsMayoresDiez}`);
+console.log("");
+
+// EJERCICIO USO MÉTODO EVERY COMPROBAR ELEMENTOS CUMPLAN UNA CONDICIÓN
+console.log("USO MÉTODO EVERY COMPROBAR ELEMENTOS CUMPLAN UNA CONDICIÓN")
+let characterColors = ["n3gro", "v3rde", "4mar1ll0", "r0j0", "azul"];
+let proof = /^[a-zA-Z]+$/ //false --let proof = /^[a-zA-Z0-9]+$/ true
+let testCharacter = characterColors.every((color)=>{
+    return proof.test(color);
+})
+console.log(`Todos los elementos del array cumplen la condición?: ${testCharacter}`);
+console.log("");
+
+// EJERCICIO USO MÉTODO SOME COMPROBAR ELEMENTOS CUMPLAN UNA CONDICIÓN
+console.log("USO MÉTODO SOME COMPROBAR ELEMENTOS CUMPLAN UNA CONDICIÓN")
+let characterColors1 = ["n3gro", "v3rde", "4mar1ll0", "r0j0", "azul"];
+let proof1 = /^[a-zA-Z]+$/
+let testCharacter1 = characterColors1.some((color)=>{
+    return proof1.test(color);
+})
+console.log(`Algunos elementos del array cumplen la condición?: ${testCharacter1}`);
+console.log("");
+
+// EJERCICIO ITERAR PROPIEDADES DE UN OBJETO CREADO CON LA CLASE OBJECT
+console.log("EJERCICIO ITERAR PROPIEDADES DE UN OBJETO CREADO CON LA CLASE OBJECT")
+let person = new Object();
+person.documento = 12345678;
+person.nombre = "Andrés";
+person.edad = 43;
+person.email = "kalavera@gmail.com";
+console.log("El objeto person posee los siguientes valores")
+Object.keys(person).forEach((atributo)=>{
+    console.log(atributo, person[atributo])
+})
+console.log("")
+
+// EJERCICIO DESTRUCTURACIÓN DE ARRAYS
+console.log("DESTRUCTURACIÓN DE ARRAYS");
+let languages = ["JavaScript", "Php", "C++", "C#", "Java"];
+let [javascript, php, cpp, csharp, java] = languages;
+console.log(javascript);
+console.log(php);
+console.log(cpp);
+console.log(csharp);
+console.log(java);
+console.log("");
+
+// EJERCICIO CONCEPTO DE HOISTING
+// function sumar(a,b){
+//     return a + b;
+// }
+
+// console.log(`Al declarar la función como "FUNCTION" la puedo llamar antes o después de declararla`)
+// console.log(sumar(3,5))
+
+let restarr = function(a,b){
+    return a - b;
+}
+console.log(`Si la función la convierto en función expresada y la llamo después de declararla, no aplica el hoisting`)
+console.log(`Entonces mostrará error por que no puede acceder a la variable antes de la inicialización`)
+console.log(restarr(3,1));
+console.log("");
+
+// EJERCICIO PASAR UNA FUNCIÓN COMO ARGUMENTO DE OTRA FUNCIÓN
+console.log("PASAR UNA FUNCIÓN COMO ARGUMENTO DE OTRA FUNCIÓN")
+function calcular(fm, x, y){
+    return fm(x,y);
+}
+let suMar = function(a, b){
+    return a + b;
+}
+let Resultado = calcular(suMar, 2, 3);
+console.log(`Resultado de pasar una función como argumento de otra función ${Resultado}`);
+console.log("");
+
+// EJERCICIO PROGRAMACIÓN IMPERATIVA VS PROGRAMACIÓN FUNCIONAL
+console.log("PROGRAMACIÓN IMPERATIVA VS PROGRAMACIÓN FUNCIONAL");
+console.log("PROGRAMACIÓN IMPERATIVA, SUMA LOS VALORES DE UN ARRAY CON UN BUCLE FOR");
+let arrnums = [2,3,4,5,6,7,8,9];
+let sUma = 0;
+for(let i = 0; i < arrnums.length; i++){
+    sUma += arrnums[i];
+}
+console.log(sUma);
+console.log("PROGRAMACIÓN FUNCIONAL, SUMA LOS VALORES DE UN ARRAY CON EL USO DEL MÉTODO REDUCE()");
+let rEsultado = arrnums.reduce((a, b)=>a+b);
+console.log(rEsultado)
+console.log("");
+
+// EJERCICIO EJEMPLO SENCILLO RECURSIÓN
+console.log("EJEMPLO SENCILLO RECURSIÓN");
+function reverseArray(array, indice, cadenaVacia){
+    return indice == 0 ? cadenaVacia : reverseArray(array, --indice, (cadenaVacia += " " + array[indice]))
+}
+/* COMO EL ÍNDICE NO VALE 0 SE EJECUTA LA FUNCIÓN REVERSEARRAY QUE TOMA TODO EL CONTENIDO DEL ARRAY, LUEGO RESTA
+EN UNO EL INDICE Y LE CONCATENA UN ESPACIO Y EL VALOR QUE TIENE ESE INDICE */
+let lEnguajes = ["Javascript", "Php", "C++", "Java", "C#"];
+// C# Java C++ Php Javascript
+let reSultado = reverseArray(lEnguajes, lEnguajes.length, "");
+console.log(reSultado);
+console.log("")
+
+// EJERCICIO RECURSIÓN SECUENCIA FIBONACCI
+console.log("RECURSIÓN SECUENCIA FIBONACCI");
+const Fibonacci = function(n){
+    return n < 2 ? n : Fibonacci(n -1) + Fibonacci(n - 2)
+}
+let secfibonacci = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+console.log(`${secfibonacci}`);
+console.log(Fibonacci(5));
+console.log(Fibonacci(8));
+console.log(Fibonacci(11));
+console.log("");
+
+// EJERCICIO RECURSIÓN FACTORIAL
+console.log("EJERCICIO RECURSIÓN FACTORIAL")
+const factorial = function(n){
+    return n == 0 || n == 1 ? 1 : n * factorial(n - 1);
+}
+console.log(factorial(5));
+console.log(factorial(0))
+console.log(factorial(1))
+console.log(factorial(7))
+console.log("")
+
+//  EJERCICIO RECURSIÓN SUMA
+// a = 2, b = 3
+console.log("Recursión suma")
+const recursionSuma = function(a, b){
+    return b == 0 ? a : recursionSuma(a + 1, b - 1);
+    //     3        2                   3      2
+    //                      5
+}
+console.log(`El resultado de la suma con recursividad es ${recursionSuma(4,1)}`)
+console.log("");
+
+// EJERCICIO RECURSIÓN RESTA
+console.log("Recursión resta");
+// a = 5, b = 4
+const recursionResta = function(a, b){
+    return b == 0 ? a : recursionResta(a - 1, b - 1)
+/*              4   5                    4      3  
+                3   4                    3      2
+                2   3                    2      1
+                1   2                    1      0
+                0 <<1>>                              
+                DEVUELVE EL VALOR DE A QUE ES <<1>>*/    
+}
+console.log(recursionResta(5,4));
+console.log("");
+
+// EJERCICIO RETORNAR UNA FUNCIÓN DESDE OTRA FUNCIÓN
+console.log("RETORNAR UNA FUNCIÓN DESDE OTRA FUNCIÓN")
+let mult = function(a){
+    return function(n){
+        return a * n
+    }
+}
+let sumax2 = mult(2);
+console.log(sumax2(5));
+let sumax3 = mult(3);
+console.log(sumax3(5));
+console.log("");
 
 
+// EJERCICIO SUMAR LOS ARGUMENTOS DE UNA FUNCIÓN INDEPENDIENTE DE SU REPRESENTACIÓN
+console.log("SUMAR LOS ARGUMENTOS DE UNA FUNCIÓN INDEPENDIENTE DE SU REPRESENTACIÓN")
+const sumAr = function(){
+    let numeros = [].slice.call(arguments);
+    let suma = 0;
+    for(let i = 0; i < numeros.length; i++){
+        suma += parseFloat(numeros[i])
+    }
+    return suma
+}
+console.log(sumAr(5,5,5,5,80));
+console.log("");
 
+// EJERCICIO ESPECIFICAR UN PARÁMETRO CON UN VALOR POR DEFECTO
+console.log("ESPECIFICAR UN PARÁMETRO CON UN VALOR POR DEFECTO")
+const separadorCadena = function(cadena, separadorI="@", separadorD="@"){
+    return `${separadorI}${cadena}${separadorD}`
+}
+console.log(separadorCadena("Andres"))
+console.log(separadorCadena("Andrés", "!", "!"))
+console.log("");
+
+// EJERCICIO EXTENDER LA FUNCIONALIDAD DE UNA FUNCIÓN CONSTRUCTORA CON PROTOTIPADO
+console.log("EXTENDER LA FUNCIONALIDAD DE UNA FUNCIÓN CONSTRUCTORA CON PROTOTIPADO")
+function MP3(cancion, artista){
+    let _titulo = cancion;
+    this.mostrarTitulo = function(){
+        return `${artista} - ${_titulo}`
+    }
+}
+
+MP3.prototype.agregarCategoria = function(nombreCategoria){
+    this.nombreCategoria = nombreCategoria;
+}
+MP3.prototype.mostrarCategoria = function(){
+    return this.nombreCategoria;
+}
+
+let klavier = new MP3("Klavier", "Ramstein");
+console.log(klavier.mostrarTitulo());
+klavier.agregarCategoria("Rock");
+console.log(klavier.mostrarCategoria());
+console.log("")
+
+// EJERCICIO AGREGAR FUNCIONALIDAD AL OBJETO STRING POR MEDIO DE PROTOTYPE
+console.log("AGREGAR FUNCIONALIDAD AL OBJETO STRING POR MEDIO DE PROTOTYPE");
+String.prototype.agregaExclamacion = function(frase){
+    if(this.length == 0){
+        return this;
+    }
+    return `¡${this}!`
+}
+//let fRase = "Hola mundo";
+let muestraCadena = "Hola Mundo";
+console.log(muestraCadena.agregaExclamacion())
+console.log("")

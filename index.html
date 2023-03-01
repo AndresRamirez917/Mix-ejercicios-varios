@@ -8,6 +8,7 @@
 </head>
 <body onload="cargaBody()">
     <h1 class="result" id="resultado"></h1>
+    <script src="/app.js"></script> 
     <script>
         // convertir una cadena a número con el operador +
             let a = "44";
@@ -292,47 +293,6 @@
             mapa.set("ABR", 400),
             mapa.set("MAY", 500)
             console.log(mapa.get("MAR"))
-
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
    </script>
     
      
@@ -348,7 +308,7 @@
     <option value="PHP">Php</option>
     <option value="Python">Python</option>
 </select>
-</br>
+</br></br></br>
 <span id="lblLenguajeSeleccionado"></span>
 
 
@@ -403,6 +363,10 @@ for(let i = 0; i < celdasPrecio.length; ++i){
     total += parseFloat(celdasPrecio[i].firstChild.data);
 }
 
+// [].forEach.call(celdasPrecio, (celdas) =>{
+//     total += parseFloat(celda.firstChild.data)
+// })
+
 let nuevaFila = document.createElement('tr');
 
 let celdaTotal = document.createElement('td');
@@ -418,6 +382,43 @@ nuevaFila.appendChild(celdaValorTotal);
 document.getElementById('productos').appendChild(nuevaFila);
 // AGREGA LAS DOS FILAS NUEVAFILA
 </script>
-<script src="/app.js"></script> 
+<BR>
+
+
+<!-- EJEMPLO ARRAY ASOCIATIVO -->
+<form id="frmValores">
+    <label>Valor 1:</label> <input type="text" id="primero" /><br />
+    <label>Valor 2:</label> <input type="text" id="segundo" /><br />
+    <label>Valor 3:</label> <input type="text" id="tercero" /><br />
+    <label>Valor 4:</label> <input type="text" id="cuarto" /><br />
+    <button id="btnValidar">Validar</button>
+</form>
+<div id="resultado"></div>
+
+<script>
+    console.log("EJEMPLO ARRAY ASOCIATIVO")
+    document.getElementById('btnValidar').addEventListener('click', function(evento) {
+        evento.preventDefault();
+
+        let elementos = document.getElementById('frmValores').elements;
+        let datos = new Object();
+
+        for(let i = 0; i < elementos.length; ++i){
+            if (elementos[i].type == 'text'){
+                datos[elementos[i].id] = elementos[i].value;
+            }
+            
+        }
+        console.log(datos)
+        let resultado = '';
+        Object.keys(datos).forEach((atributo) => {
+            let valor = datos[atributo];
+            resultado += `${atributo} => ${valor}<br/>`;
+        });
+
+        document.getElementById('resultado').innerHTML = resultado;
+    });
+</script>
+
 </body>
 </html>
