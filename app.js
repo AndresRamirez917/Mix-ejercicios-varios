@@ -1285,4 +1285,49 @@ String.prototype.agregaExclamacion = function(frase){
 //let fRase = "Hola mundo";
 let muestraCadena = "Hola Mundo";
 console.log(muestraCadena.agregaExclamacion())
-console.log("")
+console.log("");
+
+// EJERCICIO CREACIÓN DE JERARQUIA DE HERENCIA CON FUNCIONES CONSTRUCTORAS
+function Persona(documento, nombre){
+    this.documento = documento;
+    this.nombre = nombre;
+    this.mostrarDatos = function(){
+        return `Documento ${documento} - Nombre ${nombre}`
+    };
+}
+function Estudiante (documento, nombre, carnet, carrera){
+    this.carnet = carnet;
+    this.carrera = carrera;
+    Persona.call(this, documento, nombre)
+}
+let newEstudiante = new Estudiante ("1234567890", "Andrés", 20220301, "Sistemas");
+console.log(newEstudiante);
+console.log(`Se puede mostrar el método que esta dentro de la función constructora padre ${newEstudiante.mostrarDatos()}`)
+console.log("");
+
+// EJERCICIO CREAR JERARQUIA DE HERENCIA CON FUNCIONES CONSTRUCTORAS USANDO CREATE()
+console.log("CREAR JERARQUIA DE HERENCIA CON FUNCIONES CONSTRUCTORAS USANDO CREATE()")
+function Libro(titulo, autor){
+    this.obtenerTitulo = function () {
+        return `Título: ${titulo}`;
+    };
+    this.obtenerAutor = function () {
+        return `Autor: ${autor}`;
+    };
+}
+function LibroLiteratura(titulo, autor, categoria){
+    this.obtenerCategoria = function () {
+        return `Categoría: ${categoria}`;
+    };
+    this.obtenerDatosCompletos = function () {
+        return `Título: ${this.obtenerTitulo()} - Autor: ${this.obtenerAutor()} - Categoría: ${categoria}`;
+    };
+      Libro.apply(this, arguments);
+}
+LibroLiteratura.prototype = Object.create(Libro.prototype);
+LibroLiteratura.prototype.constructor = LibroLiteratura;
+let libro = new LibroLiteratura('¿Para qué sirve la filosofía?', 'Darío Sztajnszrajber', 'Filosofía');
+console.log(libro.obtenerAutor());
+console.log(libro.obtenerTitulo());
+console.log(libro.obtenerCategoria());
+console.log(libro.obtenerDatosCompletos());
