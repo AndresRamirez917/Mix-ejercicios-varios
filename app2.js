@@ -78,7 +78,7 @@ console.log("Esto muestra Nombre: manzana")
 obtenerNombre2()
 console.log("")
 
-// EJERCICIO CREAR UN TEMPORIZADOR CON EL USO DE SETTIMEOUT() Y BIND()
+// EJERCICIO 1 CREAR UN TEMPORIZADOR CON EL USO DE SETTIMEOUT() Y BIND()
 function Temporizador(tagId, inicio, final){
 this.tagId = tagId;
 this.inicio = inicio;
@@ -94,6 +94,28 @@ this.conteoSegundos = function  (){
     setTimeout(this.conteoSegundos.bind(this), 1000);
 }
 }
-let temporizador = new Temporizador("conteo", 10, 0);
+let temporizador = new Temporizador("conteo", 20, 0);
 temporizador.conteoSegundos()
 console.log("")
+
+// EJERCICIO 2 OBTENER EL ELEMENTO PADRE DE UN ELEMENTO HIJO USANDO PARENTNODE
+console.log("OBTENER EL ELEMENTO PADRE DE UN ELEMENTO HIJO USANDO PARENTNODE")
+let hijo = document.getElementById("hijo");
+let result = document.getElementById("rEsultado");
+let result2 = document.getElementById("rEsultado2");
+result.innerText = hijo.innerText
+console.log(`Esto muestra el mensaje que tiene la etiqueta hija <p> que es: ${result.innerText}`)
+let padre = hijo.parentNode;
+result.innerText = padre.nodeName
+console.log(`Esto muestra el nombre del nodo que contiene a los nodos hijos ${padre.nodeName}`)
+result2.innerText = padre.id
+console.log(`Esto muestra el nombre del id que tiene el nodo padre en el archivo html ${padre.id}`)
+console.log("")
+
+// EJERCICIO 3 OBTENER EL NÚMERO DE ELEMENTOS HIJO DE UN ELEMENTO CON LA PROPIEDAD CHILDNODES
+console.log("OBTENER EL NÚMERO DE ELEMENTOS HIJO DE UN ELEMENTO CON LA PROPIEDAD CHILDNODES");
+let papa = document.getElementById("papa");
+let Resul = document.getElementById("result");
+let hijos = padre.childNodes;
+console.log(`El número de nodos hijos que están dentro de nodo padre es ${hijos.length}`)
+Resul.innerText = hijos.length
