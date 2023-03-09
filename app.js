@@ -1253,81 +1253,105 @@ console.log(separadorCadena("Andrés", "!", "!"))
 console.log("");
 
 // EJERCICIO EXTENDER LA FUNCIONALIDAD DE UNA FUNCIÓN CONSTRUCTORA CON PROTOTIPADO
-console.log("EXTENDER LA FUNCIONALIDAD DE UNA FUNCIÓN CONSTRUCTORA CON PROTOTIPADO")
-function MP3(cancion, artista){
-    let _titulo = cancion;
-    this.mostrarTitulo = function(){
-        return `${artista} - ${_titulo}`
-    }
-}
+// console.log("EXTENDER LA FUNCIONALIDAD DE UNA FUNCIÓN CONSTRUCTORA CON PROTOTIPADO")
+// function MP3(cancion, artista){
+//     let _titulo = cancion;
+//     this.mostrarTitulo = function(){
+//         return `${artista} - ${_titulo}`
+//     }
+// }
 
-MP3.prototype.agregarCategoria = function(nombreCategoria){
-    this.nombreCategoria = nombreCategoria;
-}
-MP3.prototype.mostrarCategoria = function(){
-    return this.nombreCategoria;
-}
+// MP3.prototype.agregarCategoria = function(nombreCategoria){
+//     this.nombreCategoria = nombreCategoria;
+// }
+// MP3.prototype.mostrarCategoria = function(){
+//     return this.nombreCategoria;
+// }
 
-let klavier = new MP3("Klavier", "Ramstein");
-console.log(klavier.mostrarTitulo());
-klavier.agregarCategoria("Rock");
-console.log(klavier.mostrarCategoria());
-console.log("")
+// let klavier = new MP3("Klavier", "Ramstein");
+// console.log(klavier.mostrarTitulo());
+// klavier.agregarCategoria("Rock");
+// console.log(klavier.mostrarCategoria());
+// console.log("")
 
-// EJERCICIO AGREGAR FUNCIONALIDAD AL OBJETO STRING POR MEDIO DE PROTOTYPE
-console.log("AGREGAR FUNCIONALIDAD AL OBJETO STRING POR MEDIO DE PROTOTYPE");
-String.prototype.agregaExclamacion = function(frase){
-    if(this.length == 0){
-        return this;
-    }
-    return `¡${this}!`
-}
-//let fRase = "Hola mundo";
-let muestraCadena = "Hola Mundo";
-console.log(muestraCadena.agregaExclamacion())
-console.log("");
+// // EJERCICIO AGREGAR FUNCIONALIDAD AL OBJETO STRING POR MEDIO DE PROTOTYPE
+// console.log("AGREGAR FUNCIONALIDAD AL OBJETO STRING POR MEDIO DE PROTOTYPE");
+// String.prototype.agregaExclamacion = function(frase){
+//     if(this.length == 0){
+//         return this;
+//     }
+//     return `¡${this}!`
+// }
+// //let fRase = "Hola mundo";
+// let muestraCadena = "Hola Mundo";
+// console.log(muestraCadena.agregaExclamacion())
+// console.log("");
 
-// EJERCICIO CREACIÓN DE JERARQUIA DE HERENCIA CON FUNCIONES CONSTRUCTORAS
-function Persona(documento, nombre){
-    this.documento = documento;
-    this.nombre = nombre;
-    this.mostrarDatos = function(){
-        return `Documento ${documento} - Nombre ${nombre}`
-    };
-}
-function Estudiante (documento, nombre, carnet, carrera){
-    this.carnet = carnet;
-    this.carrera = carrera;
-    Persona.call(this, documento, nombre)
-}
-let newEstudiante = new Estudiante ("1234567890", "Andrés", 20220301, "Sistemas");
-console.log(newEstudiante);
-console.log(`Se puede mostrar el método que esta dentro de la función constructora padre ${newEstudiante.mostrarDatos()}`)
-console.log("");
+// // EJERCICIO CREACIÓN DE JERARQUIA DE HERENCIA CON FUNCIONES CONSTRUCTORAS
+// function Persona(documento, nombre){
+//     this.documento = documento;
+//     this.nombre = nombre;
+//     this.mostrarDatos = function(){
+//         return `Documento ${documento} - Nombre ${nombre}`
+//     };
+// }
+// function Estudiante (documento, nombre, carnet, carrera){
+//     this.carnet = carnet;
+//     this.carrera = carrera;
+//     Persona.call(this, documento, nombre)
+// }
+// let newEstudiante = new Estudiante ("1234567890", "Andrés", 20220301, "Sistemas");
+// console.log(newEstudiante);
+// console.log(`Se puede mostrar el método que esta dentro de la función constructora padre ${newEstudiante.mostrarDatos()}`)
+// console.log("");
 
-// EJERCICIO CREAR JERARQUIA DE HERENCIA CON FUNCIONES CONSTRUCTORAS USANDO CREATE()
-console.log("CREAR JERARQUIA DE HERENCIA CON FUNCIONES CONSTRUCTORAS USANDO CREATE()")
-function Libro(titulo, autor){
-    this.obtenerTitulo = function () {
-        return `Título: ${titulo}`;
-    };
-    this.obtenerAutor = function () {
-        return `Autor: ${autor}`;
-    };
-}
-function LibroLiteratura(titulo, autor, categoria){
-    this.obtenerCategoria = function () {
-        return `Categoría: ${categoria}`;
-    };
-    this.obtenerDatosCompletos = function () {
-        return `Título: ${this.obtenerTitulo()} - Autor: ${this.obtenerAutor()} - Categoría: ${categoria}`;
-    };
-      Libro.apply(this, arguments);
-}
-LibroLiteratura.prototype = Object.create(Libro.prototype);
-LibroLiteratura.prototype.constructor = LibroLiteratura;
-let libro = new LibroLiteratura('¿Para qué sirve la filosofía?', 'Darío Sztajnszrajber', 'Filosofía');
-console.log(libro.obtenerAutor());
-console.log(libro.obtenerTitulo());
-console.log(libro.obtenerCategoria());
-console.log(libro.obtenerDatosCompletos());
+// // EJERCICIO CREAR JERARQUIA DE HERENCIA CON FUNCIONES CONSTRUCTORAS USANDO CREATE()
+// console.log("CREAR JERARQUIA DE HERENCIA CON FUNCIONES CONSTRUCTORAS USANDO CREATE()")
+// function Libro(titulo, autor){
+//     this.obtenerTitulo = function () {
+//         return `Título: ${titulo}`;
+//     };
+//     this.obtenerAutor = function () {
+//         return `Autor: ${autor}`;
+//     };
+// }
+// function LibroLiteratura(titulo, autor, categoria){
+//     this.obtenerCategoria = function () {
+//         return `Categoría: ${categoria}`;
+//     };
+//     this.obtenerDatosCompletos = function () {
+//         return `Título: ${this.obtenerTitulo()} - Autor: ${this.obtenerAutor()} - Categoría: ${categoria}`;
+//     };
+//       Libro.apply(this, arguments);
+// }
+// LibroLiteratura.prototype = Object.create(Libro.prototype);
+// LibroLiteratura.prototype.constructor = LibroLiteratura;
+// let libro = new LibroLiteratura('¿Para qué sirve la filosofía?', 'Darío Sztajnszrajber', 'Filosofía');
+// console.log(libro.obtenerAutor());
+// console.log(libro.obtenerTitulo());
+// console.log(libro.obtenerCategoria());
+// console.log(libro.obtenerDatosCompletos());
+
+// EJERCICIO
+// var castellano = ["melón","naranja","plátano","uvas","manzana"];
+// var catala = ["meló","taronja","plàtan","raïm","poma"];
+// var pregunta = window.prompt("Di una palabra que quieras traducir del castellano al catalán");
+// var posicion = -1;
+// console.log(`asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf ${posicion}`)
+
+// for(var i=0; i<castellano.length;i++){
+// 	if(castellano[i]==pregunta){
+//         console.log(`asdfasdfasdfñlkajsdfñlkajsdfñlakjsd ${castellano[i]}`)
+// 		posicion = i;
+//         console.lolg(`asdñlkfjasdñlkfjasñdlkfjasdlñkfjañlsdkjfa ${i}`)
+// 	}
+// }
+
+// if(posicion<0){
+// 	document.write("lo sentimos, nuestro diccionario no dispone de esta esta traducción")
+// }else{
+// 	document.write("la traducción de la palabra " + pregunta + " es " + catala[posicion]);
+// }
+
+
+
