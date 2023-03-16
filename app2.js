@@ -12,6 +12,14 @@ console.log(PErson.nombre)
 for(let p in PErson){
     console.log(PErson)
 }
+/**
+1
+1
+andres
+Carolina
+{ id: 1, nombre: 'Carolina' }
+{ id: 1, nombre: 'Carolina' }
+ */
 console.log("")
 
 // EJERCICIO PREVERNIR LA EXTENSIÓN DE UN OBJETO USANDO OBJECTPREVENTEXTENSION()
@@ -35,6 +43,12 @@ try {
     console.log(`Error: ${e}`)
 }
 console.log(People)
+/**
+Nombre Andres
+true
+Al querer usar la propiedad .isExtensible debajo de preventExtension el valor sera false
+{ nombre: 'Andres', mostrarNombre: [Function: mostrarNombre] }
+ */
 console.log("")
 
 // EJERCICIO PREVENIR CUALQUIER CAMBIO EN UN OBJETO CON OBJECT.FREEZE()
@@ -58,6 +72,13 @@ try {
 }
 console.log(Car);
 Car.mostrarNombre();
+/**
+{ nombre: 'Mercedez Benz', mostrarNombre: [Function: mostrarNombre] }
+Nombre Mercedez Benz
+Error TypeError: Cannot assign to read only property 'nombre' of object '#<Object>'
+{ nombre: 'Mercedez Benz', mostrarNombre: [Function: mostrarNombre] }
+Nombre Mercedez Benz
+ */
 console.log("");
 
 // EJERCICIO USO BÁSICO DEL MÉTODO BIND PARA ASOCIAR UN CONTEXTO A UNA FUNCIÓN
@@ -76,6 +97,12 @@ obtenerNombre()
 let obtenerNombre2 = obtenerNombre.bind(fruta);
 console.log("Esto muestra Nombre: manzana")
 obtenerNombre2()
+/**
+Esto muestra Nombre: undefined
+Nombre: undefined
+Esto muestra Nombre: manzana
+Nombre: manzana
+ */
 console.log("")
 
 // EJERCICIO 1 CREAR UN TEMPORIZADOR CON EL USO DE SETTIMEOUT() Y BIND()
