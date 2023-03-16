@@ -18,6 +18,15 @@ Auto.set(1900, "Caballos de fuerza")
 Auto.forEach((valor, indice, Auto) =>{
     console.log("Las llaves de un mapa pueder ser: " + typeof(indice))
 })
+/**
+DIFERENCIA ENTRE OBJETO Y MAPA
+Todos las llaves de un objeto tienen que ser: string
+Todos las llaves de un objeto tienen que ser: string
+Todos las llaves de un objeto tienen que ser: string
+Las llaves de un mapa pueder ser: string
+Las llaves de un mapa pueder ser: string
+Las llaves de un mapa pueder ser: number
+ */
 console.log("")
 
 // EJERCICIO INVOCACIÓN DE UNA FUNCIÓN CON APPLY Y CALL
@@ -28,11 +37,17 @@ const sumar = (a,b) => {
 console.log("Llamado normal de la función " + sumar(2,3));
 console.log("Llamado de la función con apply " + sumar.apply(null, [2, 3]));
 console.log("Llamado de la función con call " + sumar.call(null, 2, 3));
+// Llamado normal de la función 5
+// Llamado de la función con apply 5
+// Llamado de la función con call 5
+console.log("")
 
 // FUNCIONES DE EJECUCIÓN INMEDIATA, NO HAY NECESIDAD DE LLAMARLAS
 (function(a,b){
     return console.log(a+b);
 })(2,3);
+//5
+console.log("")
 
 // USO DE FUNCIÓN INMEDIATA PARA CAMBIAR EL COLOR DE FONDO DE UN HTML CUANDO SE ACEPTE EL ALERT 
 (function(){
@@ -56,6 +71,13 @@ let auto = {
 }
 console.log(auto)
 console.log("Radio apagado?: " + auto.encenderRadio() + ", el radio se acaba de encender");
+// {
+//     color: 'rojo',
+//     radio: true,
+//     radioApagado: true,
+//     encenderRadio: [Function: encenderRadio]
+//   }
+//   Radio apagado?: false, el radio se acaba de encender
 console.log("")
 
 // LLAMADO DE UN VALOR RETORNADO DE UNA FUNCIÓN PARA SER USADO EN OTRA
@@ -71,6 +93,7 @@ const resta = function(a,b){
 }
 
 console.log("El resultado de la resta entre el valor retornado de Sum() y la función resta es: " + resta(resultadoSuma,10))
+//El resultado de la resta entre el valor retornado de Sum() y la función resta es: 1
 console.log("")
 
 // EJERCICIO USO DE RETURN
@@ -86,6 +109,9 @@ console.log("La suma de los números dentro del array es: " + sumaArray(nums))
 let sumArr = sumaArray([1,2,3,4,5]);
 console.log(sumArr);
 console.log(sumArr + 5)
+// La suma de los números dentro del array es: 15
+// 15
+// 20
 console.log("")
 
 // EJERCICIO USO PARAMETROS REST
@@ -98,6 +124,7 @@ const add = function(...valores){
 
 let sumTotal = add(1,2,3,4,5,6,7,8,9,10);
 console.log(sumTotal)
+//55
 console.log("")
 
 // EJERCICIO ACCEDER A ATRIBUTOS DE UN OBJETO A TRAVÉS DE UNA FUNCIÓN CON DESTRUCTURACIÓN
@@ -114,6 +141,8 @@ let user = {
 }
 
 accederAtributo(user)
+// Atributo nombre accedido desde el objeto andres
+// Atributo edad accedido desde el objeto 43
 console.log("")
 
 //  EJERCICIO CON FUNCIONES DE EJECUCIÓN INMEDIATA O IIFE
@@ -125,6 +154,7 @@ let resultad = (function(valores){
     })
 })(numbers);
 console.log("La suma de los valores es: " + resultad)
+//La suma de los valores es: 15
 console.log("")
 
 // EJERJCICIO FUNCIONES GENERADORAS USO DE SENTENCIAS YIELD PARA ENTREGAR OBJETOS DE FORMA PARCIAL
@@ -140,6 +170,13 @@ console.log(obtenerCadenas.next());
 console.log(obtenerCadenas.next());
 console.log(obtenerCadenas.next());
 console.log(obtenerCadenas.next());
+/**
+{ value: 'JavaScript', done: false }
+{ value: 'es', done: false }
+{ value: 'una rrrga', done: false }
+{ value: undefined, done: true }
+ */
+
 console.log("")
 
 // EJERCICIO FUNCIONES FLECHA
@@ -148,9 +185,10 @@ let nume = [1,2,3,4,5]
 const sumaFlecha = nume.reduce((valorActual, valorSiguiente) => {return valorActual + valorSiguiente});
 
 console.log("La suma de los valores con la función flecha es: " + sumaFlecha)
+//La suma de los valores con la función flecha es: 15
 console.log("")
 
-// PARAMETRO POR DEFECTO DE UNA FUNCIÓN
+// EJERCICIO PARAMETRO POR DEFECTO DE UNA FUNCIÓN
 console.log("PARÁMETRO POR DEFECTO DE UNA FUNCIÓN")
 const restar = function(a=4,b=5){
     return a + b;
@@ -158,6 +196,10 @@ const restar = function(a=4,b=5){
 
 console.log("Usando los parametros por defecto " + restar())
 console.log("Pasándole parametros a la función " + restar(6,1))
+/**
+Usando los parametros por defecto 9
+Pasándole parametros a la función 7
+ */
 console.log("")
 
 // EJERCICIO PASAR PARAMETROS A UNA FUNCIÓN GENERADORA
@@ -174,6 +216,13 @@ console.log(genEnt.next());
 console.log(genEnt.next());
 console.log(genEnt.next());
 console.log(genEnt.next());
+/**
+{ value: 1, done: false }
+{ value: 2, done: false }
+{ value: 3, done: false }
+{ value: 4, done: false }
+{ value: undefined, done: true }
+ */
 console.log("")
 
 // EJERCICIO PASAR UN ARREGLO A UNA FUNCIÓN GENERADORA
@@ -189,12 +238,23 @@ let genents = generaEnts(ents);
 for(let val of genents){
     console.log(val)
 }
+/**
+1
+2
+3
+4
+5
+ */
 console.log("")
 
 // EJERCICIO SECUENCIA DE ESCAPE EN PLANTILLAS 
 console.log("SECUENCIA DE ESCAPE EN PLANTILLAS")
 let frase = `\t javascript es una chimbita, \n y estamos aprendiendo a diario un poquito mas que ayer`
 console.log(frase)
+/**
+ *      javascript es una chimbita, 
+ y estamos aprendiendo a diario un poquito mas que ayer
+ */
 console.log("")
 
 // EJERCICIO USO DE SYMBOL PARA DARLE UNA PROPIEDAD ÚNICA A UN OBJETO
@@ -207,6 +267,7 @@ let People = {
 };
 
 console.log(People)
+//{ nombre: 'Andrés', edad: 43, [Symbol()]: '12345' }
 console.log("")
 
 // EJERCICIO DARLE A UNA PROPIEDAD SYMBOL UNA DESCRIPCIÓN
@@ -219,6 +280,13 @@ let People2 = {
 };
 
 console.log(People2)
+/**
+{
+  nombre: 'Andrés',
+  edad: 43,
+  [Symbol(Mensaje descriptivo para la propiedad symbol)]: '12345'
+}
+ */
 console.log("")
 
 // EJERCICIO CREACIÓN DE PROXY
@@ -258,6 +326,7 @@ proxy2.edad = 20
 // proxy2.edad = "yuca";
 // proxy2.edad = 150;
 console.log("Validación de propiedades de un objeto usando un proxy" + proxy2)
+//Validación de propiedades de un objeto usando un proxy[object Object]
 console.log("")
 
 // EJERCICIO USO DE PROXY PARA VALIDAR SI UNA LLAVE EN UN OBJETO EMPIEZA POR UN DETERMINADO CARACTER
@@ -282,6 +351,16 @@ let proxy3 = new Proxy(persona3, handler1);
 console.log(proxy3)
 console.log("La llave _nombre existe en persona3")
 console.log("_nombre" in persona3)
+/**
+{
+  _nombre: 'Andres',
+  apellido: 'ramirez',
+  edad: 43,
+  _raza: 'ario superios'
+}
+La llave _nombre existe en persona3
+true
+ */
 console.log("")
 
 // EJERCICIO GETTERS Y SETTERS PARA OBTENER Y ASIGNAR VALORES A LOS ATRIBUTOS DE UN OBJETO
@@ -326,6 +405,10 @@ let NuevaPersona = new Persona4("Andrés", "Ramirez", 43)
 console.log("El nombre almacenado en el atributo nombre es: " + NuevaPersona.nombre);
 NuevaPersona._nombre = "Carlos";
 console.log("Después de asignar el nuevo nombre ahora el atributo tiene el valor de: " + NuevaPersona.nombre)
+/**
+El nombre almacenado en el atributo nombre es: Andrés
+Después de asignar el nuevo nombre ahora el atributo tiene el valor de: Carlos
+ */
 console.log("")
 
 // EJERCICIO CREACIÓN DE HERENCIA
@@ -376,6 +459,10 @@ try {
     console.log("El rango del array no puede ser negativo")
 }
 console.log("Ejercicio para captura de errores")
+/*
+El rango del array no puede ser negativo
+Ejercicio para captura de errores
+*/
 console.log("")
 
 // EJERCICIO CAPTURA DE ERRORES DE JAVASCRIPT Y CAMBIARLOS POR ERRORES PERSONALIZADOS
@@ -410,6 +497,10 @@ function dividir(a, b){
 
 console.log("El resultado de la división es: " + dividir(5,5))
 console.log("Para ver el error, se debe de hacer la división por cero")
+/**
+El resultado de la división es: 1
+Para ver el error, se debe de hacer la división por cero
+ */
 console.log("")
 
 // EJERCICIO BUSCAR NÚMEROS EN UNA CADENA DE TEXTO
@@ -420,6 +511,10 @@ let patron = /\d+/g;
 let numeros1 = cadena.match(patron)
 console.log("Números contenidos en la cadena, ojo devuelve un array ");
 console.log(numeros1)
+/**
+Números contenidos en la cadena, ojo devuelve un array 
+[ '7', '09', '1', '985' ]
+ */
 console.log("");
 
 // EJERCICIO BUSCAR UNA CADENA EN UN TEXTO CON EXEC
@@ -428,9 +523,13 @@ let patron2 = /carolina/;
 let cad2 = patron2.exec(patron2);
 console.log("El valor devuelto por patron2.exec almacenado en un array es ");
 console.log(cad2);
+/**
+El valor devuelto por patron2.exec almacenado en un array es 
+[ 'carolina', index: 1, input: '/carolina/', groups: undefined ]
+ */
 console.log("");
 
-// EJERCICIO BUSQUEDA DE UNA CADENA CON .TEST Y ASIGNANDO UNA EXPRESIÓN REGULAR A UNA CLASE
+// EJERCICIO BÚSQUEDA DE UNA CADENA CON .TEST Y ASIGNANDO UNA EXPRESIÓN REGULAR A UNA CLASE
 console.log("BÚSQUEDA DE UNA CADENA CON .TEST Y ASIGNANDO UNA EXPRESIÓN REGULAR A UNA CLASE")
 let pat = /\d+/g;
 let nuevaRegExp = new RegExp(pat);
@@ -438,6 +537,10 @@ let cad3 = "123 y la concha de su madre";
 console.log("El resultado de la busqueda devuelte true o false")
 let resp = nuevaRegExp.test(cad3);
 console.log(resp)
+/**
+El resultado de la busqueda devuelte true o false
+true
+ */
 console.log("")
 
 // EJERCICIO EXTRAER EL NOMBRE DE UN ARCHIVO DE UNA CADENA DE CARÁCTERES
@@ -445,7 +548,15 @@ console.log("EXTRAER EL NOMBRE DE UN ARCHIVO DE UNA CADENA DE CARÁCTERES")
 let bookName = "el manga de los_caballeros_del_zodiaco.pdf es la hostia";
 let patronBusqueda = /([a-z_]+\.pdf)/;
 let salida = patronBusqueda.exec(bookName)
-console.log(salida)   
+console.log(salida)  
+/**
+[
+  'los_caballeros_del_zodiaco.pdf',
+  'los_caballeros_del_zodiaco.pdf',
+  index: 12,
+  input: 'el manga de los_caballeros_del_zodiaco.pdf es la hostia',
+  groups: undefined
+] */ 
 console.log("")
 
 // EJERCICIO FETCH PARA TRAER DATA DE UN SERVIDOR Y MOSTRARLA 
@@ -459,6 +570,25 @@ fetch(url)
 }).catch((error)=>{
     console.log(error)
 });
+/**
+La respuesta al fetch es: 
+{
+  results: [
+    {
+      gender: 'male',
+      name: [Object],
+      location: [Object],
+      email: 'ignjatije.cirkovic@exmple.com',
+      login: [Object],
+      dob: [Object],
+      registered: [Object],
+      phone: '012-9213-584',
+      cell: '067-9344-792',
+      id: [Object],
+      picture: [Object],
+      nat: 'RS'
+    },.........
+ */
 console.log("")
 
 // OBTENER DATOS DE GITHUB DE UN USUARIO CON FETCH
@@ -472,6 +602,43 @@ fetch(url2)
 }).catch((error)=>{
     console.log(error)
 });
+/**
+Datos usuario github: 
+{
+  login: 'AndresRamirez917',
+  id: 93174122,
+  node_id: 'U_kgDOBY25ag',
+  avatar_url: 'https://avatars.githubusercontent.com/u/93174122?v=4',
+  gravatar_id: '',
+  url: 'https://api.github.com/users/AndresRamirez917',
+  html_url: 'https://github.com/AndresRamirez917',
+  followers_url: 'https://api.github.com/users/AndresRamirez917/followers',
+  following_url: 'https://api.github.com/users/AndresRamirez917/following{/other_user}',
+  gists_url: 'https://api.github.com/users/AndresRamirez917/gists{/gist_id}',
+  starred_url: 'https://api.github.com/users/AndresRamirez917/starred{/owner}{/repo}',
+  subscriptions_url: 'https://api.github.com/users/AndresRamirez917/subscriptions',
+  organizations_url: 'https://api.github.com/users/AndresRamirez917/orgs',
+  repos_url: 'https://api.github.com/users/AndresRamirez917/repos',
+  events_url: 'https://api.github.com/users/AndresRamirez917/events{/privacy}',
+  received_events_url: 'https://api.github.com/users/AndresRamirez917/received_events',
+  type: 'User',
+  site_admin: false,
+  name: 'Andres Ramirez',
+  company: null,
+  blog: '',
+  location: 'Colombia-Tolima-Fresno',
+  email: null,
+  hireable: null,
+  bio: 'Programador Junior, muy junior, amante de la tecnología y la programación',
+  twitter_username: null,
+  public_repos: 31,
+  public_gists: 0,
+  followers: 0,
+  following: 0,
+  created_at: '2021-10-26T03:25:34Z',
+  updated_at: '2023-01-31T22:49:49Z'
+}
+ */
 console.log("")
 
 
@@ -508,6 +675,7 @@ let promes = new Promise(function(res, rej){
  .catch(function(){
     console.log("la ejecución ha fallado")
  })
+ //La ejecución ha sido edsitosa
  console.log("");
  
  // EJERCICIO PROMESAS2 -  EJECUTAR EN CONSOLA
@@ -521,6 +689,7 @@ let promes = new Promise(function(res, rej){
  },  function(error){
     console.log(error)
  })
+ //la suma de los valores ha sido concluída
  console.log("");
 
  // EJERCICIO MÚLTIPLES PROMESAS USANDO EL MÉTODO STATIC ALL DE PROMISE -  EJECUTAR DESDE LA CONSOLA
@@ -533,6 +702,13 @@ let promes = new Promise(function(res, rej){
  console.log("Las promesas se ejecutan todas a la vez, no se suman los tiempos");
  console.log("La primera dura 3 segundos, pero a la vez se ejecuta la de 2 segundos y la primera de 1 segundo");
  console.log("Por eso es que todas se muestran de una vez");
+ /**
+Las promesas se ejecutan todas a la vez, no se suman los tiempos
+La primera dura 3 segundos, pero a la vez se ejecuta la de 2 segundos y la primera de 1 segundo
+Por eso es que todas se muestran de una vez
+
+[ 1, 2, 3 ]
+  */
  console.log("");
 
  // EJERCICIO MÚLTIPLES SOLICITUDES GET COMO OBJETOS USANDO ALL - EJECUTAR DESDE LA CONSOLA
@@ -541,6 +717,11 @@ let promes = new Promise(function(res, rej){
  let solicitudes = urls.map(url => fetch(url));
 Promise.all(solicitudes)
 .then(respuestas => respuestas.forEach(r => console.log(`${r.url}; ${r.status}`)));
+/**
+https://randomuser.me/api/?results=10; 200
+https://randomuser.me/api/?results=5; 200
+https://randomuser.me/api/?results=1; 200
+ */
 console.log("");
 
 // EJERCICIO EXTRAER UNA SUBCADENA DE CARACTERES A PARTIR DE UNA FRASE
@@ -570,6 +751,13 @@ const extraerSubcadena = function(cadena){
 let phrase1 = 'Existen varios lenguajes de programación. Entre ellos: Javascript, Php, C++, Java.';
 let resultado3 = extraerSubcadena(phrase1);
 console.log(resultado3);
+/**
+Indice inicial 53
+Indice final 83
+Array de lenguajes  Javascript, Php, C++, y Java
+La subcadena contiene los lenguajes de programación  Javascript, Php, C++, y Java
+[ 'Javascript', 'Php', 'C++', 'Java' ]
+ */
 console.log("");
 
 // EJERCICIO FUNCIÓN PARA VALIDAR SI UNA VARIABLE HA SIDO DEFINIDA, ES DIFERENTE DE VACIO Y DE NULL, 
@@ -597,6 +785,7 @@ const validator = function(cadenaa){
 }
 
 console.log(`La cadena cumpe con las condiciones? ${validator(0)}` )
+//La cadena cumpe con las condiciones? false
 console.log("")
 
 // EJERCICIO REMPLAZO DE CARACTERES USANDO EL MÉTODO REPLACE
@@ -608,6 +797,11 @@ let resfinal = estring.replace(expregul, "JavaScript")
 console.log("cadena original " + estring);
 console.log("Cadena despúes de usar el replace:")
 console.log(resfinal)
+/**
+cadena original Kotlin es tremando, Python es genial
+Cadena despúes de usar el replace:
+JavaScript es tremando, JavaScript es genial
+ */
 console.log("")
 
 // EJERCICIO BUSQUEDA DE PALABRAS EN UNA FRASE CON REGEXP USANDO CICLO FOR
@@ -633,6 +827,7 @@ let oracion2 = oracion.split(' ')
 //     }
 // }
  console.log(String(ind))
+ //multiparadigma,medida,multiplataforma
 console.log("")
  
 // EJERCICIO BUSQUEDA DE PALABRAS EN UNA FRASE CON REGEXP USANDO CICLO WHILE
@@ -650,6 +845,11 @@ while((resultadoBusqueda = patr.exec(oracion3)) != null){
     resu += `En ${resultadoBusqueda.index} se encontró ${resultadoBusqueda[0]}\n`
 }
 console.log(resu)
+/**
+En 151 se encontró multiparadigma
+En 241 se encontró medida
+En 313 se encontró multiplataforma
+ */
 console.log("")
 
 // EJERJCICIO FUNCIÓN CALCULO GASTOS VIAJE
@@ -734,6 +934,8 @@ const habana = {
 const distanciaEnKilometros = calcularDistanciaEntreDosCoordenadas(cdmx.latitud, cdmx.longitud, habana.latitud, habana.longitud);
 console.log("hola " + distanciaEnKilometros);
 
+// EJERCICIO ENCONTRAR PALABRAS REPETIDAS EN UN ARREGLO
+console.log("EJERCICIO ENCONTRAR PALABRAS REPETIDAS EN UN ARREGLO")
 function encontrarPalabrasRepetidas(arreglo) {
     var palabrasRepetidas = {};
     console.log()
@@ -755,6 +957,23 @@ function encontrarPalabrasRepetidas(arreglo) {
   }
 
   console.log("El elemento repetido es: " + encontrarPalabrasRepetidas(["carlos", "andres", "andres", "ramirez", "aristizabal", "javascript", "javascript"]))
+  /**
+carlos
+1
+andres
+1
+andres
+2
+ramirez
+1
+aristizabal
+1
+javascript
+1
+javascript
+2
+El elemento repetido es: andres,javascript
+   */
   console.log("");
 
   // EJERCICIO BUCLE SOBRE LOS VALORES DE UN OBJETO
@@ -769,6 +988,10 @@ function encontrarPalabrasRepetidas(arreglo) {
     console.log(value); // John, luego 30
   }
   console.log("Bucle sobre los valores de un objeto")
+  /**
+John
+30
+   */
   console.log("");
   // EJERCICIO INVERTIR EL ORDEN DE UN NOMBRE - NO FUNCIONA BIEN
 //   let nombre1 = "Andrés Ramirez";
@@ -786,6 +1009,10 @@ console.log(html)
 html = html.replace(/</g, "&lt;");
 html = html.replace(/>/g, "&gt;");
 console.log(html);
+/**
+<p>Esto es un <spam>Párrafo<spam/></p>
+&lt;p&gt;Esto es un &lt;spam&gt;Párrafo&lt;spam/&gt;&lt;/p&gt;
+ */
 console.log("")
 
 // EJERCICIC CONVERTIR UNA FECHA EN FORMATO ISO 8601 EN UN OBJETO TIPO FECHA
@@ -802,6 +1029,14 @@ let fecha = new Date(Date.UTC.apply(null, components));
 console.log("Comprobar si fecha es un objeto tipo fecha " + typeof fecha);
 console.log("Fecha convertida " + fecha);
 console.log("Fecha convertida con formato .toString" + fecha.toString())
+/**
+Fecha original 2020-1-22T14:26:19Z
+Fecha con caracteres sólo numéricos 2020 1 22 14 26 19 
+Fecha convertida a array 2020,0,22,14,26,19,
+Comprobar si fecha es un objeto tipo fecha object
+Fecha convertida Wed Jan 22 2020 09:26:19 GMT-0500 (Colombia Standard Time)
+Fecha convertida con formato .toStringWed Jan 22 2020 09:26:19 GMT-0500 (Colombia Standard Time)
+ */
 console.log("")
 
 // EJERCICIO USAR UNA FUNCIÓN ANÓNIMA COMO CALLBACK DE LA FUNCIÓN SETTIMEOUT()
@@ -830,7 +1065,7 @@ function showMensaje(){
 }
 setTimeout(showMensaje, 2000)
 
-// EJERCICIO ANDRES PARA PRUEBNA DE RECORRIDO DE ARRAYS- UNA BOBADA
+// EJERCICIO ANDRES PARA PRUEBA DE RECORRIDO DE ARRAYS- UNA BOBADA
 console.log("ANDRÉS PARA PRUEBA DE RECORRIDO DE ARRAYS - UNA BOBADA")
 let arrayNumbers = [1, 2, 3, 10, 50, 70, 100, 120, 200, 250, 300];
     arrayNumbers.forEach((index)=>{
@@ -839,6 +1074,17 @@ let arrayNumbers = [1, 2, 3, 10, 50, 70, 100, 120, 200, 250, 300];
             console.log(`Valor ${index}`)
         }   
     })
+/**
+Indice 7
+Valor 120
+Indice 8
+Valor 200
+Indice 9
+Valor 250
+Indice 10
+Valor 300
+ */
+console.log("")
    
 // EJERCICIO USO DEL MÉTODO FINDINDEX() PARA ENCONTRAR UN ÍNDICE QUE CUMPLA CON UNA CONDICIÓN 
 console.log("USO DEL MÉTODO FINDINDEX() PARA ENCONTRAR UN ÍNDICE QUE CUMPLA CON UNA CONDICIÓN")
@@ -847,6 +1093,7 @@ let indic = arrayNumbers2.findIndex((n)=>{
     return n > 100
 })
 console.log(indic)
+//7
 console.log("")
 
 // EJERCICIO "APLANAR UN ARREGLO" BIDIMENSIONAL USANDO CONCAT() Y APPLY(), MÁS FÁCIL CON APPLY()
@@ -856,6 +1103,10 @@ let arrayAplanado = bidimensionalArray[0].concat(bidimensionalArray[1], bidimens
 let arrayAplanadoConApply = bidimensionalArray.concat.apply([], bidimensionalArray);
 console.log(`Array "aplanado" con concat() ${arrayAplanado}`);
 console.log(`Array "aplanado" con apply() ${arrayAplanadoConApply}`);
+/**
+Array "aplanado" con concat() 1,2,3,4,5,6,7,8,9,10,11,12
+Array "aplanado" con apply() 1,2,3,4,5,6,7,8,9,10,11,12
+ */
 console.log("");
 
 // EJERCICIO ELIMINAR ELEMENTOS DE UN ARRAY CON SPLICE()
@@ -865,6 +1116,10 @@ let deletedColor = colors.splice(colors.indexOf("Negro"),1);
 let cadenita = colors.toString();
 console.log(cadenita)
 console.log(cadenita.split(" "))
+/**
+Blanco,Rojo,Azul,Amarillo,Verde
+[ 'Blanco,Rojo,Azul,Amarillo,Verde' ]
+ */
 console.log("")
 
 // EJERCICIO RECORRER ARRAY MULTIDIMENSIONAL CON BUCLES FOR ANIDADOS
@@ -907,6 +1162,12 @@ for (var i = 1; i <= 1; i++) {
         console.log(objects[key1][key2])
     }
   }
+  /**
+Carolina
+Del Rio
+Andrés
+Ramirez
+   */
   console.log("")
         
   // EJERCICIO TABLA DE MULTIPLICAR HORIZONTAL Y VERTICAL CON BUCLES FOR ANIDADOS
@@ -918,6 +1179,18 @@ for (var i = 1; i <= 1; i++) {
     }
     console.log(row);
   }
+  /**
+1 2 3 4 5 6 7 8 9 10 
+2 4 6 8 10 12 14 16 18 20 
+3 6 9 12 15 18 21 24 27 30 
+4 8 12 16 20 24 28 32 36 40 
+5 10 15 20 25 30 35 40 45 50 
+6 12 18 24 30 36 42 48 54 60 
+7 14 21 28 35 42 49 56 63 70 
+8 16 24 32 40 48 56 64 72 80 
+9 18 27 36 45 54 63 72 81 90 
+10 20 30 40 50 60 70 80 90 100 
+   */
   console.log("");
 
   // EJERCICIO SUMA DEL TOTAL DE LOS NÚMEROS DE UN ARRAY MULTIDIMENSIONAL CON BUCLE FOR ANIDADO 
@@ -931,6 +1204,7 @@ for (var i = 1; i <= 1; i++) {
     }
   }
   console.log(sum);
+  //10
   console.log("");
 
   // EJERCICIO PIRÁMIDE DE NÚMEROS DEL 1 AL 9
@@ -942,6 +1216,17 @@ for (var i = 1; i <= 1; i++) {
     }
     console.log(row);
   }
+  /**
+1 
+1 2 
+1 2 3 
+1 2 3 4 
+1 2 3 4 5 
+1 2 3 4 5 6 
+1 2 3 4 5 6 7 
+1 2 3 4 5 6 7 8 
+1 2 3 4 5 6 7 8 9 
+   */
   console.log("");
 
   // EJERCICIO CONTADOR DE VOCALES DE UNA CADENA CON BUCLE FOR ANIDADO
@@ -957,6 +1242,7 @@ for (var i = 1; i <= 1; i++) {
   }
   
   console.log(count);
+  //13
   console.log("")
 
   // EJERCICIO REMPLAZAR ELEMENTOS DE UN ARRAY CON SPLICE()
@@ -969,6 +1255,12 @@ for (var i = 1; i <= 1; i++) {
   console.log(`Se elimina el color Negro y se reemplaza por Amatista ${colores}`);
   colores.splice(colores.indexOf("Amatista"), 2, "Azul", "Magenta");
   console.log(`Se elimina el color Amatista y se reemplaza por los colores Azul y Magenta ${colores}`)
+  /**
+Array de colores original Rojo,Verde,Amarillo,Negro
+Se elimina el color Amarillo y se reemplaza por Gris Rojo,Verde,Gris,Negro
+Se elimina el color Negro y se reemplaza por Amatista Rojo,Verde,Gris,Amatista
+Se elimina el color Amatista y se reemplaza por los colores Azul y Magenta Rojo,Verde,Gris,Azul,Magenta
+   */
   console.log("")
 
   // EJERCICIO CREAR UNA FUNCIÓN PARA ELIMINAR MÚLTIPLES ELEMENTOS DE UN ARRAY
@@ -982,6 +1274,10 @@ let Colors = ["Rojo", "Verde", "Amarillo", "Negro"];
 console.log(Colors);
 remplazarMultiplesElementos(Colors, "Amarillo", "Verde Flori Pepiado");
 console.log(Colors)
+/**
+[ 'Rojo', 'Verde', 'Amarillo', 'Negro' ]
+[ 'Rojo', 'Verde', 'Verde Flori Pepiado', 'Negro' ]
+ */
 console.log("")
 
 // EJERCICIO ELIMINAR TODAS LAS OCURRENCIAS DE UN ELEMENTO DENTRO DE UN ARRAY
@@ -997,6 +1293,10 @@ console.log(`Array original ${Colors2}`);
 eliminarOcurrencias(Colors2, "Amarillo");
 eliminarOcurrencias(Colors2, "Rojo");
 console.log(`Nuevo array de colores ${Colors2}`)
+/**
+Array original Rojo,Rojo,Azul,Amarillo,Amarillo,Verde
+Nuevo array de colores Azul,Verde
+ */
 console.log("");
 
 // EJERCICIO EXTRAER UNA PORCIÓN DE UN ARREGLO CON LA FUNCIÓN SLICE()
@@ -1004,6 +1304,7 @@ console.log("EXTRAER UNA PORCIÓN DE UN ARREGLO CON LA FUNCIÓN SLICE()")
 let Colors3 = ["Blanco", "Negro", "Rojo", "Verde", "Azul", "Gris", "Violeta"];
 let coloresPrimarios = Colors3.slice(Colors3.indexOf("Rojo"), Colors3.indexOf("Azul") + 1);
 console.log(coloresPrimarios);
+//[ 'Rojo', 'Verde', 'Azul' ]
 console.log("");
 
 // EJERCICIO APLICAR UNA FUNCIÓN A CADA ELEMENTO DE UN ARRAY
@@ -1016,6 +1317,10 @@ colors4.forEach((color, indice, colors4) =>{
     }
 })
 console.log(colors4);
+/**
+[ 'Negro', 'Verde', 'Sapote', 'Vino Tinto', 'Negro' ]
+[ '#####', 'Verde', 'Sapote', 'Vino Tinto', '#####' ]
+ */
 console.log("");
 
 // EJERCICIO CAMBIAR UN ELEMENTO DE UN ARRAY SIN ALTERAR EL ARRAY ORIGINAL
@@ -1027,6 +1332,11 @@ let resultado = colors5.map((color, indice, colors5)=>{
 });
 console.log(`Array con cambios ${resultado}`)
 console.log(`Array original ${colors5}`);
+/**
+[ 'Negro', 'Verde', 'Sapote', 'Vino Tinto', 'Negro' ]
+Array con cambios #####,Verde,Sapote,Vino Tinto,#####
+Array original Negro,Verde,Sapote,Vino Tinto,Negro
+ */
 console.log("");
 
 // EJERCICIO CAMBIAR UN ELEMENTO DE UN ARRAY SIN ALTERAR EL ARRAY ORIGINAL SIMPLIFICADO
@@ -1038,6 +1348,10 @@ let colors6 = ["Negro", "Verde", "Sapote", "Vino Tinto", "Negro"];
 console.log(colors6);
 colors6.forEach(cambiarElementos)
 console.log(`Nuevo Array ${colors6}`);
+/**
+[ 'Negro', 'Verde', 'Sapote', 'Vino Tinto', 'Negro' ]
+Nuevo Array #####,Verde,Sapote,Vino Tinto,#####
+ */
 console.log("");
 
 // EJERCICIO CONVERTIR DECIMALES A HEXADECIMALES CON MAP() Y TOSTRING(BASEX)
@@ -1048,6 +1362,10 @@ let hexadecimales = arrayDecimales.map((decimales)=>{
 })
 console.log(`${arrayDecimales}`);
 console.log(`${hexadecimales}`);
+/**
+29,31,255,5,17,23,101,23537
+1d,1f,ff,5,11,17,65,5bf1
+ */
 console.log("");
 
 // EJERCICIO USO DEL MÉTODO FILTER PARA ELIMINAR UN ELEMENTO DE UN ARRAY
@@ -1058,6 +1376,10 @@ let nuevoColors = colors77.filter((color)=>{
     return color != "Negro"
 })
 console.log(`Resultado del array usando el método .filter es ${nuevoColors}`)
+/**
+[ 'Negro', 'Verde', 'Sapote', 'Vino Tinto', 'Negro' ]
+Resultado del array usando el método .filter es Verde,Sapote,Vino Tinto
+ */
 console.log("");
 
 // EJERCICIO USO DEL MÉTODO EVERY PARA QUE TODOS LOS ELEMENTOS DE UN ARRAY CUMPLAN UNA CONDICIÓN
@@ -1066,6 +1388,7 @@ let resNumsMayoresDiez = numsMayoresDiez.every((number)=>{
     return number >= 10;
 })
 console.log(`Todos los elementos del array cumplen la condición?: ${resNumsMayoresDiez}`);
+//Todos los elementos del array cumplen la condición?: true
 console.log("");
 
 // EJERCICIO USO MÉTODO EVERY COMPROBAR ELEMENTOS CUMPLAN UNA CONDICIÓN
@@ -1076,6 +1399,7 @@ let testCharacter = characterColors.every((color)=>{
     return proof.test(color);
 })
 console.log(`Todos los elementos del array cumplen la condición?: ${testCharacter}`);
+//Todos los elementos del array cumplen la condición?: false
 console.log("");
 
 // EJERCICIO USO MÉTODO SOME COMPROBAR ELEMENTOS CUMPLAN UNA CONDICIÓN
@@ -1086,6 +1410,7 @@ let testCharacter1 = characterColors1.some((color)=>{
     return proof1.test(color);
 })
 console.log(`Algunos elementos del array cumplen la condición?: ${testCharacter1}`);
+//Algunos elementos del array cumplen la condición?: true
 console.log("");
 
 // EJERCICIO ITERAR PROPIEDADES DE UN OBJETO CREADO CON LA CLASE OBJECT
@@ -1099,6 +1424,13 @@ console.log("El objeto person posee los siguientes valores")
 Object.keys(person).forEach((atributo)=>{
     console.log(atributo, person[atributo])
 })
+/**
+El objeto person posee los siguientes valores
+documento 12345678
+nombre Andrés
+edad 43
+email kalavera@gmail.com
+ */
 console.log("")
 
 // EJERCICIO DESTRUCTURACIÓN DE ARRAYS
@@ -1126,6 +1458,7 @@ let restarr = function(a,b){
 console.log(`Si la función la convierto en función expresada y la llamo después de declararla, no aplica el hoisting`)
 console.log(`Entonces mostrará error por que no puede acceder a la variable antes de la inicialización`)
 console.log(restarr(3,1));
+//2
 console.log("");
 
 // EJERCICIO PASAR UNA FUNCIÓN COMO ARGUMENTO DE OTRA FUNCIÓN
@@ -1138,10 +1471,11 @@ let suMar = function(a, b){
 }
 let Resultado = calcular(suMar, 2, 3);
 console.log(`Resultado de pasar una función como argumento de otra función ${Resultado}`);
+//Resultado de pasar una función como argumento de otra función 5
 console.log("");
 
 // EJERCICIO PROGRAMACIÓN IMPERATIVA VS PROGRAMACIÓN FUNCIONAL
-console.log("PROGRAMACIÓN IMPERATIVA VS PROGRAMACIÓN FUNCIONAL");
+console.log("PROGRAMACIÓN IMPERATIVA");
 console.log("PROGRAMACIÓN IMPERATIVA, SUMA LOS VALORES DE UN ARRAY CON UN BUCLE FOR");
 let arrnums = [2,3,4,5,6,7,8,9];
 let sUma = 0;
@@ -1149,9 +1483,14 @@ for(let i = 0; i < arrnums.length; i++){
     sUma += arrnums[i];
 }
 console.log(sUma);
+//44
+console.log("")
+
+console.log("PROGRAMACIÓN FUNCIONAL")
 console.log("PROGRAMACIÓN FUNCIONAL, SUMA LOS VALORES DE UN ARRAY CON EL USO DEL MÉTODO REDUCE()");
 let rEsultado = arrnums.reduce((a, b)=>a+b);
 console.log(rEsultado)
+//44
 console.log("");
 
 // EJERCICIO EJEMPLO SENCILLO RECURSIÓN
@@ -1165,6 +1504,7 @@ let lEnguajes = ["Javascript", "Php", "C++", "Java", "C#"];
 // C# Java C++ Php Javascript
 let reSultado = reverseArray(lEnguajes, lEnguajes.length, "");
 console.log(reSultado);
+// C# Java C++ Php Javascript
 console.log("")
 
 // EJERCICIO RECURSIÓN SECUENCIA FIBONACCI
@@ -1177,6 +1517,12 @@ console.log(`${secfibonacci}`);
 console.log(Fibonacci(5));
 console.log(Fibonacci(8));
 console.log(Fibonacci(11));
+/**
+0,1,1,2,3,5,8,13,21,34,55,89
+5
+21
+89
+ */
 console.log("");
 
 // EJERCICIO RECURSIÓN FACTORIAL
@@ -1188,6 +1534,12 @@ console.log(factorial(5));
 console.log(factorial(0))
 console.log(factorial(1))
 console.log(factorial(7))
+/**
+120
+1
+1
+5040
+ */
 console.log("")
 
 //  EJERCICIO RECURSIÓN SUMA
@@ -1227,6 +1579,8 @@ let sumax2 = mult(2);
 console.log(sumax2(5));
 let sumax3 = mult(3);
 console.log(sumax3(5));
+//10
+//15
 console.log("");
 
 
@@ -1241,6 +1595,7 @@ const sumAr = function(){
     return suma
 }
 console.log(sumAr(5,5,5,5,80));
+//100
 console.log("");
 
 // EJERCICIO ESPECIFICAR UN PARÁMETRO CON UN VALOR POR DEFECTO
@@ -1250,6 +1605,10 @@ const separadorCadena = function(cadena, separadorI="@", separadorD="@"){
 }
 console.log(separadorCadena("Andres"))
 console.log(separadorCadena("Andrés", "!", "!"))
+/**
+@Andres@
+!Andrés!
+ */
 console.log("");
 
 // EJERCICIO EXTENDER LA FUNCIONALIDAD DE UNA FUNCIÓN CONSTRUCTORA CON PROTOTIPADO
